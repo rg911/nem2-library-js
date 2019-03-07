@@ -31,4 +31,6 @@ export declare class BlockchainRoutesApi {
 
     getDiagnosticStorage(): Promise<any>;
 
+    getBlockReceipts(height: number): Promise<any>;
+
 }
