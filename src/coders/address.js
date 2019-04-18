@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { sha3_256 } from 'js-sha3';
+import { sha3_256, keccak256 } from 'js-sha3';
 import Ripemd160 from 'ripemd160';
 import array from './array';
 import base32 from './base32';
@@ -76,9 +76,9 @@ const address = {
 	 * @param {number} networkIdentifier The network identifier.
 	 * @returns {Uint8Array} The decoded address corresponding to the inputs.
 	 */
-	publicKeyToAddress: (publicKey, networkIdentifier) => {
+	publicKeyToAddress: (publicKey, networkIdentifier, isKeccak = false) => {
 		// step 1: sha3 hash of the public key
-		const publicKeyHash = sha3_256.arrayBuffer(publicKey);
+		const publicKeyHash = !isKeccak ? sha3_256.arrayBuffer(publicKey) : keccak256.arrayBuffer(publicKey);
 
 		// step 2: ripemd160 hash of (1)
 		const ripemdHash = new Ripemd160().update(new Buffer(publicKeyHash)).digest();
@@ -89,7 +89,8 @@ const address = {
 		array.copy(decodedAddress, ripemdHash, constants.sizes.ripemd160, 1);
 
 		// step 4: concatenate (3) and the checksum of (3)
-		const hash = sha3_256.arrayBuffer(decodedAddress.subarray(0, constants.sizes.ripemd160 + 1));
+		const hash = !isKeccak ? sha3_256.arrayBuffer(decodedAddress.subarray(0, constants.sizes.ripemd160 + 1)) :
+								 keccak256.arrayBuffer(decodedAddress.subarray(0, constants.sizes.ripemd160 + 1)) ;
 		array.copy(decodedAddress, array.uint8View(hash), constants.sizes.checksum, constants.sizes.ripemd160 + 1);
 
 		return decodedAddress;
@@ -100,8 +101,8 @@ const address = {
 	 * @param {Uint8Array} decoded The decoded address.
 	 * @returns {boolean} true if the decoded address is valid, false otherwise.
 	 */
-	isValidAddress: decoded => {
-		const hash = sha3_256.create();
+	isValidAddress: (decoded, isKeccak = false) => {
+		const hash = !isKeccak ? sha3_256.create() : keccak256.create();
 		const checksumBegin = constants.sizes.addressDecoded - constants.sizes.checksum;
 		hash.update(decoded.subarray(0, checksumBegin));
 		const checksum = new Uint8Array(constants.sizes.checksum);
