@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-export declare module address {
+ export declare module address {
     function stringToAddress(encoded: string): Uint8Array;
 
     function addressToString(decoded: Uint8Array): string;
 
     function aliasToRecipient(namespaceId: Uint8Array): Uint8Array;
 
-    function publicKeyToAddress(publicKey: Uint8Array, networkIdentifier: number, isKeccak: boolean): Uint8Array;
+    function publicKeyToAddress(publicKey: Uint8Array, networkIdentifier: number, hashAlgorithm: number): Uint8Array;
 
-    function isValidAddress(decoded: Uint8Array, isKeccak: boolean): boolean;
+    function isValidAddress(decoded: Uint8Array, hashAlgorithm: number): boolean;
 
     function isValidEncodedAddress(encoided: string): boolean;
 }
