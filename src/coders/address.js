@@ -19,6 +19,7 @@ import Ripemd160 from 'ripemd160';
 import array from './array';
 import base32 from './base32';
 import convert from './convert';
+import { HashAlgorithm } from './hashAlgorithmEnum';
 
 const constants = {
 	sizes: {
@@ -74,35 +75,39 @@ const address = {
 	 * Converts a public key to a decoded address for a specific network.
 	 * @param {module:crypto/keyPair~PublicKey} publicKey The public key.
 	 * @param {number} networkIdentifier The network identifier.
+	 * @param {number} hashAlgorithm 0: SHA3_256, 1: KECCAK_256
 	 * @returns {Uint8Array} The decoded address corresponding to the inputs.
 	 */
-	publicKeyToAddress: (publicKey, networkIdentifier, isKeccak = false) => {
+	publicKeyToAddress: (publicKey, networkIdentifier, hashAlgorithm = HashAlgorithm.SHA3_256) => {
 		// step 1: sha3 hash of the public key
-		const publicKeyHash = !isKeccak ? sha3_256.arrayBuffer(publicKey) : keccak256.arrayBuffer(publicKey);
+		const publicKeyHash = hashAlgorithm === HashAlgorithm.SHA3_256 ?
+				sha3_256.arrayBuffer(publicKey) : keccak256.arrayBuffer(publicKey);
 
 		// step 2: ripemd160 hash of (1)
 		const ripemdHash = new Ripemd160().update(new Buffer(publicKeyHash)).digest();
-
+		
 		// step 3: add network identifier byte in front of (2)
 		const decodedAddress = new Uint8Array(constants.sizes.addressDecoded);
 		decodedAddress[0] = networkIdentifier;
 		array.copy(decodedAddress, ripemdHash, constants.sizes.ripemd160, 1);
 
 		// step 4: concatenate (3) and the checksum of (3)
-		const hash = !isKeccak ? sha3_256.arrayBuffer(decodedAddress.subarray(0, constants.sizes.ripemd160 + 1)) :
-								 keccak256.arrayBuffer(decodedAddress.subarray(0, constants.sizes.ripemd160 + 1)) ;
+		const hash = hashAlgorithm === HashAlgorithm.SHA3_256 ?
+				sha3_256.arrayBuffer(decodedAddress.subarray(0, constants.sizes.ripemd160 + 1)) :
+				keccak256.arrayBuffer(decodedAddress.subarray(0, constants.sizes.ripemd160 + 1));
 		array.copy(decodedAddress, array.uint8View(hash), constants.sizes.checksum, constants.sizes.ripemd160 + 1);
-
 		return decodedAddress;
 	},
 
 	/**
 	 * Determines the validity of a decoded address.
 	 * @param {Uint8Array} decoded The decoded address.
+	 * @param {number} hashAlgorithm 0: SHA3_256, 1: KECCAK_256
 	 * @returns {boolean} true if the decoded address is valid, false otherwise.
 	 */
-	isValidAddress: (decoded, isKeccak = false) => {
-		const hash = !isKeccak ? sha3_256.create() : keccak256.create();
+	isValidAddress: (decoded, hashAlgorithm = HashAlgorithm.SHA3_256) => {
+		const hash = hashAlgorithm === HashAlgorithm.SHA3_256 ?
+				sha3_256.create() : keccak256.create();
 		const checksumBegin = constants.sizes.addressDecoded - constants.sizes.checksum;
 		hash.update(decoded.subarray(0, checksumBegin));
 		const checksum = new Uint8Array(constants.sizes.checksum);
