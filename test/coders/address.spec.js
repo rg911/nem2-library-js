@@ -132,6 +132,19 @@ describe('address', () => {
 			expect(decoded1).to.not.deep.equal(decoded2);
 		});
 
+		it('NIS1 compatibility', () => {
+			// Arrange:
+			const NIS1_Public_Key = 'cb95fe997f0b95232cb1c592e277efb2252adf4bbea5217d570631a4f2697690';
+			const main_net = 0x68;
+
+			// Act:
+			const decoded1 = address.publicKeyToAddress(convert.hexToUint8(NIS1_Public_Key), main_net, 1);
+
+			// Assert:
+			expect(address.isValidAddress(decoded1, 1)).to.equal(true);
+			expect(address.addressToString(decoded1)).to.be.equal('NDMC2HVJL433CXNPT5UPI7YKKCSAHWIIUJHLHBOC');
+		});
+
 		it('different networks result in different addresses', () => {
 			// Arrange:
 			const publicKey = test.random.publicKey();
@@ -147,13 +160,12 @@ describe('address', () => {
 		});
 
 		it('can create address from public key - Keccak', () => {
-			// Arrange:
 			const nonKeccakHex = '9823BB7C3C089D996585466380EDBDC19D495918484BF7E997';
 			const keccakHex = '981A00208CDDCC647BF1E065E93824FAA732AAB187CC1A9B02';
 			const publicKey = convert.hexToUint8('3485D98EFD7EB07ADAFCFD1A157D89DE2796A95E780813C0258AF3F5F84ED8CB');
 
 			// Act:
-			const decoded = address.publicKeyToAddress(publicKey, Network_Public_Test_Identifier, true);
+			const decoded = address.publicKeyToAddress(publicKey, Network_Public_Test_Identifier, 1);
 
 			// Assert:
 			expect(decoded[0]).to.equal(Network_Public_Test_Identifier);
