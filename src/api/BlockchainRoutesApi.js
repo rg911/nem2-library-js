@@ -155,7 +155,6 @@ export default class BlockchainRoutesApi {
         });
     }
 
-
     /**
      * Get transactions from a block
      * Returns an array of [transactions](https://nemtech.github.io/concepts/transaction.html) included in a block for a given block height.
@@ -173,7 +172,6 @@ export default class BlockchainRoutesApi {
       if (height === undefined || height === null) {
         throw new Error("Missing the required parameter 'height' when calling getBlockTransactions");
       }
-
 
       let pathParams = {
         'height': height
