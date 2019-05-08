@@ -213,7 +213,7 @@ export default class AccountRoutesApi {
      * @param {String} accountId The public key or address of the account.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AccountPropertiesInfoDTO} and HTTP response
      */
-    getAccountPropertiesWithHttpInfo(accountId) {
+    getAccountPropertyWithHttpInfo(accountId) {
       let postBody = null;
 
       // verify the required parameter 'accountId' is set
@@ -238,7 +238,7 @@ export default class AccountRoutesApi {
       let returnType = AccountPropertiesInfoDTO;
 
       return this.apiClient.callApi(
-        '/account/properties/{accountId}', 'GET',
+        '/account/{accountId}/properties', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );
@@ -250,8 +250,8 @@ export default class AccountRoutesApi {
      * @param {String} accountId The public key or address of the account.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AccountPropertiesInfoDTO}
      */
-    getAccountProperties(accountId) {
-      return this.getAccountPropertiesWithHttpInfo(accountId)
+    getAccountProperty(accountId) {
+      return this.getAccountPropertyWithHttpInfo(accountId)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -264,8 +264,9 @@ export default class AccountRoutesApi {
      * @param {module:model/Addresses} addresses An array of addresses.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/AccountPropertiesInfoDTO>} and HTTP response
      */
-    getAccountPropertiesFromAccountsWithHttpInfo(addresses) {
-      let postBody = addresses;
+    getAccountPropertiesWithHttpInfo(addresses) {
+      let postBody = {
+        addresses: addresses};
 
       // verify the required parameter 'addresses' is set
       if (addresses === undefined || addresses === null) {
@@ -300,8 +301,8 @@ export default class AccountRoutesApi {
      * @param {module:model/Addresses} addresses An array of addresses.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/AccountPropertiesInfoDTO>}
      */
-    getAccountPropertiesFromAccounts(addresses) {
-      return this.getAccountPropertiesFromAccountsWithHttpInfo(addresses)
+    getAccountProperties(addresses) {
+      return this.getAccountPropertiesWithHttpInfo(addresses)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
