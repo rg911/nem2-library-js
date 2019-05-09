@@ -35,7 +35,7 @@ describe('SecretLockTransaction', () => {
 			mosaicAmount: uint64.fromUint(10000000),
 			duration: uint64.fromUint(100),
 			hashAlgorithm: 0,
-			secret: hash.hex(),
+			secret: '225fe6d12b73a7d51f2992ce82951dbf8c173fa4',
 			recipient: 'SDUP5PLHDXKBX3UU5Q52LAY4WYEKGEWC6IB3VBFM'
 		};
 		const verifiableTransaction = new SecretLockTransaction.Builder()
@@ -54,8 +54,8 @@ describe('SecretLockTransaction', () => {
 			240,
 			transactionPayload.payload.length
 		)).to.be.equal('29CF5FD941AD25D58096980000000000640000000000000000' +
-			'B778A39A3663719DFC5E48C9D78431B1E45C2AF9DF538782BF199C189DABE' +
-			'AC7680ADA57DCEC8EEE91C4E3BF3BFA9AF6FFDE90CD1D249D1C6121D7B759' +
-			'A001B190E8FEBD671DD41BEE94EC3BA5831CB608A312C2F203BA84AC');
+			'225FE6D12B73A7D51F2992CE82951DBF8C173FA40000000000' +
+			'0000000000000090E8FEBD671DD41BEE94EC3BA5831CB608A3' +
+			'12C2F203BA84AC');
 	});
 });

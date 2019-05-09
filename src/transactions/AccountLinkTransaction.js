@@ -78,7 +78,7 @@ export default class AccountLinkTransaction extends VerifiableTransaction {
 
 
 				AccountLinkTransactionBuffer.startAccountLinkTransactionBuffer(builder);
-				AccountLinkTransactionBuffer.addSize(builder, 154);
+				AccountLinkTransactionBuffer.addSize(builder, 153);
 				AccountLinkTransactionBuffer.addSignature(builder, signatureVector);
 				AccountLinkTransactionBuffer.addSigner(builder, signerVector);
 				AccountLinkTransactionBuffer.addVersion(builder, this.version);
