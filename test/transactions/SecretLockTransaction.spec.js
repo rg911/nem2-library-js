@@ -16,9 +16,11 @@
 
 import expect from 'expect.js';
 import { sha3_512 } from 'js-sha3';
+import Ripemd160 from 'ripemd160';
 import SecretLockTransaction from '../../src/transactions/SecretLockTransaction';
 import deadline from '../../src/transactions/Deadline';
 import uint64 from '../../src/coders/uint64';
+import { HashAlgorithm } from '../../src/coders/hashAlgorithm';
 
 describe('SecretLockTransaction', () => {
 	const keyPair = {
@@ -27,15 +29,14 @@ describe('SecretLockTransaction', () => {
 	};
 
 	it('should create secret lock transaction - OP_HASH_160 (short hash)', () => {
-		const hash = sha3_512.create();
-		hash.update('secret');
+		const hash = new Ripemd160().update(Buffer.from('Test Hash 160')).digest('Hex');		
 		const secretLockTransaction = {
 			deadline: deadline(),
 			mosaicId: [3646934825, 3576016193],
 			mosaicAmount: uint64.fromUint(10000000),
 			duration: uint64.fromUint(100),
-			hashAlgorithm: 0,
-			secret: '225fe6d12b73a7d51f2992ce82951dbf8c173fa4',
+			hashAlgorithm: HashAlgorithm.RIPEMD_160,
+			secret: hash,
 			recipient: 'SDUP5PLHDXKBX3UU5Q52LAY4WYEKGEWC6IB3VBFM'
 		};
 		const verifiableTransaction = new SecretLockTransaction.Builder()
@@ -53,12 +54,12 @@ describe('SecretLockTransaction', () => {
 		expect(transactionPayload.payload.substring(
 			240,
 			transactionPayload.payload.length
-		)).to.be.equal('29CF5FD941AD25D58096980000000000640000000000000000' +
-			'225FE6D12B73A7D51F2992CE82951DBF8C173FA40000000000' +
-			'0000000000000090E8FEBD671DD41BEE94EC3BA5831CB608A3' +
-			'12C2F203BA84AC');
+		)).to.be.equal('29CF5FD941AD25D580969800000000006400000' +
+			'000000000020440E077BD989728C442B2F90C72715DB4D2619' +
+			'F00000000000000000000000090E8FEBD671DD41BEE94EC3BA' +
+			'5831CB608A312C2F203BA84AC');
 	});
-	it('should create secret lock transaction', () => {
+	it('should create secret lock transaction - SHA3_256', () => {
 		const hash = sha3_512.create();
 		hash.update('secret');
 		const secretLockTransaction = {
@@ -66,7 +67,7 @@ describe('SecretLockTransaction', () => {
 			mosaicId: [3646934825, 3576016193],
 			mosaicAmount: uint64.fromUint(10000000),
 			duration: uint64.fromUint(100),
-			hashAlgorithm: 0,
+			hashAlgorithm: HashAlgorithm.SHA3_256,
 			secret: 'f66481fa5a03660fe655cfbcd517cb47ed60e42a47ed60e42a3660fe655cfbc3',
 			recipient: 'SDUP5PLHDXKBX3UU5Q52LAY4WYEKGEWC6IB3VBFM'
 		};
