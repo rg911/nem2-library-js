@@ -16,7 +16,9 @@
 
 export * from './ApiClient';
 export * from './api/AccountRoutesApi';
-export * from './api/BlockchainRoutesApi';
+export * from './api/BlockRoutesApi';
+export * from './api/ChainRoutesApi';
+export * from './api/DiagnosticRoutesApi';
 export * from './api/MosaicRoutesApi';
 export * from './api/NamespaceRoutesApi';
 export * from './api/TransactionRoutesApi';
