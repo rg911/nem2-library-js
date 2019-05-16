@@ -59,7 +59,6 @@ export default class DiagnosticRoutesApi {
     getDiagnosticStorageWithHttpInfo() {
       let postBody = null;
 
-
       let pathParams = {
       };
       let queryParams = {
@@ -101,7 +100,6 @@ export default class DiagnosticRoutesApi {
      */
     getServerInfoWithHttpInfo() {
       let postBody = null;
-
 
       let pathParams = {
       };
