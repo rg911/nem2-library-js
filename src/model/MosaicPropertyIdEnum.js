@@ -16,11 +16,18 @@ import ApiClient from '../ApiClient';
 
 
 /**
-* Enum class RolesEnum.
+* Enum class MosaicPropertyIdEnum.
 * @enum {}
 * @readonly
 */
-export default class RolesEnum {
+export default class MosaicPropertyIdEnum {
+    
+        /**
+         * value: 0
+         * @const
+         */
+        0 = 0;
+
     
         /**
          * value: 1
@@ -38,9 +45,9 @@ export default class RolesEnum {
     
 
     /**
-    * Returns a <code>RolesEnum</code> enum value from a Javascript object name.
+    * Returns a <code>MosaicPropertyIdEnum</code> enum value from a Javascript object name.
     * @param {Object} data The plain JavaScript object containing the name of the enum value.
-    * @return {module:model/RolesEnum} The enum <code>RolesEnum</code> value.
+    * @return {module:model/MosaicPropertyIdEnum} The enum <code>MosaicPropertyIdEnum</code> value.
     */
     static constructFromObject(object) {
         return object;

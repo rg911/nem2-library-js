@@ -23,6 +23,7 @@ import SecretProofTransactionSchema from '../schema/SecretProofTransactionSchema
 import convert from '../coders/convert';
 
 const { flatbuffers } = require('flatbuffers');
+const address = require('../coders/address').default;
 
 const { SecretProofTransactionBuffer } = SecretProofTransactionBufferPackage.default.Buffers;
 
@@ -64,6 +65,10 @@ export default class SecretProofTransaction extends VerifiableTransaction {
 				this.secret = secret;
 				return this;
 			}
+			addRecipient(recipient) {
+				this.recipient = address.stringToAddress(recipient);
+				return this;
+			}
 
 			addProof(proof) {
 				this.proof = proof;
@@ -81,11 +86,12 @@ export default class SecretProofTransaction extends VerifiableTransaction {
 				const feeVector = SecretProofTransactionBuffer.createFeeVector(builder, this.fee);
 				const byteSecret = convert.hexToUint8(64 > this.secret.length ? this.secret + '0'.repeat(64 - this.secret.length) : this.secret);
 				const secretVector = SecretProofTransactionBuffer.createSecretVector(builder, byteSecret);
+				const recipientVector = SecretProofTransactionBuffer.createRecipientVector(builder, this.recipient);
 				const byteProof = convert.hexToUint8(this.proof);
 				const proofVector = SecretProofTransactionBuffer.createProofVector(builder, byteProof);
 
 				SecretProofTransactionBuffer.startSecretProofTransactionBuffer(builder);
-				SecretProofTransactionBuffer.addSize(builder, 155 + byteProof.length);
+				SecretProofTransactionBuffer.addSize(builder, 180 + byteProof.length);
 				SecretProofTransactionBuffer.addSignature(builder, signatureVector);
 				SecretProofTransactionBuffer.addSigner(builder, signerVector);
 				SecretProofTransactionBuffer.addVersion(builder, this.version);
@@ -94,6 +100,7 @@ export default class SecretProofTransaction extends VerifiableTransaction {
 				SecretProofTransactionBuffer.addDeadline(builder, deadlineVector);
 				SecretProofTransactionBuffer.addHashAlgorithm(builder, this.hashAlgorithm);
 				SecretProofTransactionBuffer.addSecret(builder, secretVector);
+				SecretProofTransactionBuffer.addRecipient(builder, recipientVector);
 				SecretProofTransactionBuffer.addProofSize(builder, byteProof.length);
 				SecretProofTransactionBuffer.addProof(builder, proofVector);
 

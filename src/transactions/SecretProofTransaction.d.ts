@@ -34,6 +34,8 @@ export declare module SecretProofTransaction {
 
         addSecret(secret): Builder;
 
+        addRecipient(recipient): Builder;
+
         addProof(proof): Builder;
 
         build(): SecretProofTransaction;
