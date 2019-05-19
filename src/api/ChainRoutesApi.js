@@ -59,6 +59,7 @@ export default class ChainRoutesApi {
     getBlockchainHeightWithHttpInfo() {
       let postBody = null;
 
+
       let pathParams = {
       };
       let queryParams = {
@@ -100,6 +101,7 @@ export default class ChainRoutesApi {
      */
     getBlockchainScoreWithHttpInfo() {
       let postBody = null;
+
 
       let pathParams = {
       };

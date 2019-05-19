@@ -31,9 +31,9 @@ import ApiClient from '../ApiClient';
 
 
 /**
-* Enum class NamespaceTypeEnum.
-* @enum {}
-* @readonly
+* The NamespaceTypeEnum model module.
+* @module model/NamespaceTypeEnum
+* @version 0.7.15
 */
 export default class NamespaceTypeEnum {
     
@@ -53,12 +53,32 @@ export default class NamespaceTypeEnum {
     
 
     /**
-    * Returns a <code>NamespaceTypeEnum</code> enum value from a Javascript object name.
-    * @param {Object} data The plain JavaScript object containing the name of the enum value.
-    * @return {module:model/NamespaceTypeEnum} The enum <code>NamespaceTypeEnum</code> value.
+    * Constructs a <code>NamespaceTypeEnum</code> from a plain JavaScript object, optionally creating a new instance.
+    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+    * @param {Object} data The plain JavaScript object bearing properties of interest.
+    * @param {module:model/NamespaceTypeEnum} obj Optional instance to populate.
+    * @return {module:model/NamespaceTypeEnum} The populated <code>NamespaceTypeEnum</code> instance.
     */
-    static constructFromObject(object) {
-        return object;
+    static constructFromObject(data, obj) {
+        if (data) {
+            obj = obj || new NamespaceTypeEnum();
+
+            
+            
+            
+
+        }
+        return obj;
     }
+
+
+
+
+
+
+
+
+
 }
+
 

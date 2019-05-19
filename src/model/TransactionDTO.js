@@ -18,6 +18,10 @@ import ApiClient from '../ApiClient';
 
 
 
+
+
+
+
 /**
 * The TransactionDTO model module.
 * @module model/TransactionDTO

@@ -26,6 +26,7 @@
  *
  */
 
+
 import ApiClient from '../ApiClient';
 import ResolutionStatementDTO from './ResolutionStatementDTO';
 import TransactionStatementDTO from './TransactionStatementDTO';

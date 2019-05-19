@@ -19,54 +19,50 @@ import ApiClient from '../ApiClient';
 
 
 /**
-* The TransactionHashes model module.
-* @module model/TransactionHashes
+* The UInt64DTO model module.
+* @module model/UInt64DTO
 * @version 0.7.15
 */
-export default class TransactionHashes {
+export default class UInt64DTO extends Array {
     /**
-    * Constructs a new <code>TransactionHashes</code>.
-    * @alias module:model/TransactionHashes
+    * Constructs a new <code>UInt64DTO</code>.
+    * @alias module:model/UInt64DTO
     * @class
+    * @extends Array
     */
 
     constructor() {
         
+        super();
+        
 
 
 
         
 
-        
+        return this;
     }
 
     /**
-    * Constructs a <code>TransactionHashes</code> from a plain JavaScript object, optionally creating a new instance.
+    * Constructs a <code>UInt64DTO</code> from a plain JavaScript object, optionally creating a new instance.
     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
     * @param {Object} data The plain JavaScript object bearing properties of interest.
-    * @param {module:model/TransactionHashes} obj Optional instance to populate.
-    * @return {module:model/TransactionHashes} The populated <code>TransactionHashes</code> instance.
+    * @param {module:model/UInt64DTO} obj Optional instance to populate.
+    * @return {module:model/UInt64DTO} The populated <code>UInt64DTO</code> instance.
     */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new TransactionHashes();
+            obj = obj || new UInt64DTO();
+
+            ApiClient.constructFromObject(data, obj, 'Number');
 
             
             
-            
 
-            if (data.hasOwnProperty('hashes')) {
-                obj['hashes'] = ApiClient.convertToType(data['hashes'], ['String']);
-            }
         }
         return obj;
     }
 
-    /**
-    * The array of transaction hashes.
-    * @member {Array.<String>} hashes
-    */
-    hashes = undefined;
 
 
 

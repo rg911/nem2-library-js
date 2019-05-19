@@ -20,14 +20,14 @@ import UInt64DTO from './UInt64DTO';
 
 
 /**
-* The EmbeddedTransactionMetaDTO model module.
-* @module model/EmbeddedTransactionMetaDTO
+* The AccountMetaDTO model module.
+* @module model/AccountMetaDTO
 * @version 0.7.15
 */
-export default class EmbeddedTransactionMetaDTO {
+export default class AccountMetaDTO {
     /**
-    * Constructs a new <code>EmbeddedTransactionMetaDTO</code>.
-    * @alias module:model/EmbeddedTransactionMetaDTO
+    * Constructs a new <code>AccountMetaDTO</code>.
+    * @alias module:model/AccountMetaDTO
     * @class
     * @param height {module:model/UInt64DTO} 
     * @param hash {String} 
@@ -47,15 +47,15 @@ export default class EmbeddedTransactionMetaDTO {
     }
 
     /**
-    * Constructs a <code>EmbeddedTransactionMetaDTO</code> from a plain JavaScript object, optionally creating a new instance.
+    * Constructs a <code>AccountMetaDTO</code> from a plain JavaScript object, optionally creating a new instance.
     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
     * @param {Object} data The plain JavaScript object bearing properties of interest.
-    * @param {module:model/EmbeddedTransactionMetaDTO} obj Optional instance to populate.
-    * @return {module:model/EmbeddedTransactionMetaDTO} The populated <code>EmbeddedTransactionMetaDTO</code> instance.
+    * @param {module:model/AccountMetaDTO} obj Optional instance to populate.
+    * @return {module:model/AccountMetaDTO} The populated <code>AccountMetaDTO</code> instance.
     */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new EmbeddedTransactionMetaDTO();
+            obj = obj || new AccountMetaDTO();
 
             
             
