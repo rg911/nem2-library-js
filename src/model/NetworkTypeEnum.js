@@ -16,31 +16,45 @@ import ApiClient from '../ApiClient';
 
 
 /**
-* Enum class RolesEnum.
+* Enum class NetworkTypeEnum.
 * @enum {}
 * @readonly
 */
-export default class RolesEnum {
+export default class NetworkTypeEnum {
     
         /**
-         * value: 1
+         * value: 104
          * @const
          */
-        1 = 1;
+        104 = 104;
 
     
         /**
-         * value: 2
+         * value: 152
          * @const
          */
-        2 = 2;
+        152 = 152;
+
+    
+        /**
+         * value: 96
+         * @const
+         */
+        96 = 96;
+
+    
+        /**
+         * value: 144
+         * @const
+         */
+        144 = 144;
 
     
 
     /**
-    * Returns a <code>RolesEnum</code> enum value from a Javascript object name.
+    * Returns a <code>NetworkTypeEnum</code> enum value from a Javascript object name.
     * @param {Object} data The plain JavaScript object containing the name of the enum value.
-    * @return {module:model/RolesEnum} The enum <code>RolesEnum</code> value.
+    * @return {module:model/NetworkTypeEnum} The enum <code>NetworkTypeEnum</code> value.
     */
     static constructFromObject(object) {
         return object;
