@@ -36,7 +36,8 @@ export default class ReceiptDTO {
     constructor(version, type) {
         
 
-
+        
+        
 
         this['version'] = version;this['type'] = type;
 

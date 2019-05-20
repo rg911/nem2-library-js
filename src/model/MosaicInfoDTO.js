@@ -37,7 +37,8 @@ export default class MosaicInfoDTO {
     constructor(meta, mosaic) {
         
 
-
+        
+        
 
         this['meta'] = meta;this['mosaic'] = mosaic;
 

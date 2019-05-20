@@ -42,7 +42,8 @@ export default class MosaicDefinitionDTO {
     constructor(mosaicId, supply, height, owner, revision, properties, levy) {
         
 
-
+        
+        
 
         this['mosaicId'] = mosaicId;this['supply'] = supply;this['height'] = height;this['owner'] = owner;this['revision'] = revision;this['properties'] = properties;this['levy'] = levy;
 

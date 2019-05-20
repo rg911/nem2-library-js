@@ -37,7 +37,8 @@ export default class ResolutionEntryDTO {
     constructor(source, resolved) {
         
 
-
+        
+        
 
         this['source'] = source;this['resolved'] = resolved;
 

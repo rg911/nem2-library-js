@@ -36,7 +36,8 @@ export default class SourceDTO {
     constructor(primaryId, secondaryId) {
         
 
-
+        
+        
 
         this['primaryId'] = primaryId;this['secondaryId'] = secondaryId;
 

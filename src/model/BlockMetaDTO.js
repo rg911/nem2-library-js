@@ -39,7 +39,8 @@ export default class BlockMetaDTO {
     constructor(hash, generationHash, subCacheMerkleRoots, totalFee, numTransactions) {
         
 
-
+        
+        
 
         this['hash'] = hash;this['generationHash'] = generationHash;this['subCacheMerkleRoots'] = subCacheMerkleRoots;this['totalFee'] = totalFee;this['numTransactions'] = numTransactions;
 

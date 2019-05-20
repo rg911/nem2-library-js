@@ -13,7 +13,7 @@
 
 
 import ApiClient from '../ApiClient';
-import RolesEnum from './RolesEnum';
+import RolesTypeEnum from './RolesTypeEnum';
 
 
 
@@ -33,7 +33,7 @@ export default class NodeInfoDTO {
     * @param port {Number} The port used for the communication.
     * @param networkIdentifier {Number} 
     * @param version {Number} The version of the application.
-    * @param roles {module:model/RolesEnum} 
+    * @param roles {module:model/RolesTypeEnum} 
     * @param host {String} The IP address of the endpoint.
     * @param friendlyName {String} The name of the node.
     */
@@ -41,7 +41,8 @@ export default class NodeInfoDTO {
     constructor(publicKey, port, networkIdentifier, version, roles, host, friendlyName) {
         
 
-
+        
+        
 
         this['publicKey'] = publicKey;this['port'] = port;this['networkIdentifier'] = networkIdentifier;this['version'] = version;this['roles'] = roles;this['host'] = host;this['friendlyName'] = friendlyName;
 
@@ -76,7 +77,7 @@ export default class NodeInfoDTO {
                 obj['version'] = ApiClient.convertToType(data['version'], 'Number');
             }
             if (data.hasOwnProperty('roles')) {
-                obj['roles'] = RolesEnum.constructFromObject(data['roles']);
+                obj['roles'] = RolesTypeEnum.constructFromObject(data['roles']);
             }
             if (data.hasOwnProperty('host')) {
                 obj['host'] = ApiClient.convertToType(data['host'], 'String');
@@ -108,7 +109,7 @@ export default class NodeInfoDTO {
     */
     version = undefined;
     /**
-    * @member {module:model/RolesEnum} roles
+    * @member {module:model/RolesTypeEnum} roles
     */
     roles = undefined;
     /**

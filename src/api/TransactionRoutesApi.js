@@ -41,7 +41,7 @@ export default class TransactionRoutesApi {
 
     /**
      * Announce a cosignature transaction
-     * Announces a [cosignature transaction](https://nemtech.github.io/concepts/aggregate-transaction.html#cosignature-transaction) to the network.
+     * Announces a cosignature transaction to the network.
      * @param {module:model/TransactionPayload} transactionPayload 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AnnounceTransactionInfoDTO} and HTTP response
      */
@@ -77,7 +77,7 @@ export default class TransactionRoutesApi {
 
     /**
      * Announce a cosignature transaction
-     * Announces a [cosignature transaction](https://nemtech.github.io/concepts/aggregate-transaction.html#cosignature-transaction) to the network.
+     * Announces a cosignature transaction to the network.
      * @param {module:model/TransactionPayload} transactionPayload 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AnnounceTransactionInfoDTO}
      */
@@ -91,7 +91,7 @@ export default class TransactionRoutesApi {
 
     /**
      * Announce an aggregate bonded transaction
-     * Announces an [aggregate bonded transaction](https://nemtech.github.io/concepts/aggregate-transaction.html#aggregate-bonded) to the network.
+     * Announces an aggregate bonded transaction to the network.
      * @param {module:model/TransactionPayload} transactionPayload 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AnnounceTransactionInfoDTO} and HTTP response
      */
@@ -127,7 +127,7 @@ export default class TransactionRoutesApi {
 
     /**
      * Announce an aggregate bonded transaction
-     * Announces an [aggregate bonded transaction](https://nemtech.github.io/concepts/aggregate-transaction.html#aggregate-bonded) to the network.
+     * Announces an aggregate bonded transaction to the network.
      * @param {module:model/TransactionPayload} transactionPayload 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AnnounceTransactionInfoDTO}
      */
@@ -141,7 +141,7 @@ export default class TransactionRoutesApi {
 
     /**
      * Announce a new transaction
-     * Announces a transaction to the network. It is recommended to use the NEM2-SDK to announce transactions as they should be [serialized](https://nemtech.github.io/api.html#serialization).
+     * Announces a transaction to the network. It is recommended to use the NEM2-SDK to announce transactions as they should be serialized. 
      * @param {module:model/TransactionPayload} transactionPayload 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AnnounceTransactionInfoDTO} and HTTP response
      */
@@ -177,7 +177,7 @@ export default class TransactionRoutesApi {
 
     /**
      * Announce a new transaction
-     * Announces a transaction to the network. It is recommended to use the NEM2-SDK to announce transactions as they should be [serialized](https://nemtech.github.io/api.html#serialization).
+     * Announces a transaction to the network. It is recommended to use the NEM2-SDK to announce transactions as they should be serialized. 
      * @param {module:model/TransactionPayload} transactionPayload 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AnnounceTransactionInfoDTO}
      */

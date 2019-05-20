@@ -58,20 +58,6 @@ export default class ReceiptTypeEnum {
 
     
         /**
-         * value: 9032
-         * @const
-         */
-        9032 = 9032;
-
-    
-        /**
-         * value: 8786
-         * @const
-         */
-        8786 = 8786;
-
-    
-        /**
          * value: 9042
          * @const
          */

@@ -33,7 +33,8 @@ export default class MerklePathItem {
     constructor() {
         
 
-
+        
+        
 
         
 

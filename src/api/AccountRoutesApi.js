@@ -92,7 +92,7 @@ export default class AccountRoutesApi {
 
     /**
      * Get multisig account information
-     * Returns the [multisig account](https://nemtech.github.io/concepts/multisig-account.html) information.
+     * Returns the multisig account information.
      * @param {String} accountId The public key or address of the account.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MultisigAccountInfoDTO} and HTTP response
      */
@@ -129,7 +129,7 @@ export default class AccountRoutesApi {
 
     /**
      * Get multisig account information
-     * Returns the [multisig account](https://nemtech.github.io/concepts/multisig-account.html) information.
+     * Returns the multisig account information.
      * @param {String} accountId The public key or address of the account.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MultisigAccountInfoDTO}
      */
@@ -143,7 +143,7 @@ export default class AccountRoutesApi {
 
     /**
      * Get multisig account graph information
-     * Returns the [multisig account](https://nemtech.github.io/concepts/multisig-account.html) graph.
+     * Returns the multisig account graph.
      * @param {String} accountId The public key or address of the account.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/MultisigAccountGraphInfoDTO>} and HTTP response
      */
@@ -180,7 +180,7 @@ export default class AccountRoutesApi {
 
     /**
      * Get multisig account graph information
-     * Returns the [multisig account](https://nemtech.github.io/concepts/multisig-account.html) graph.
+     * Returns the multisig account graph.
      * @param {String} accountId The public key or address of the account.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/MultisigAccountGraphInfoDTO>}
      */
@@ -194,7 +194,7 @@ export default class AccountRoutesApi {
 
     /**
      * Get account configurable properties information
-     * Returns the [configurable properties](https://nemtech.github.io/concepts/account-filter.html) for a given account. 
+     * Returns the configurable properties for a given account.
      * @param {String} accountId The public key or address of the account.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AccountPropertiesInfoDTO} and HTTP response
      */
@@ -231,7 +231,7 @@ export default class AccountRoutesApi {
 
     /**
      * Get account configurable properties information
-     * Returns the [configurable properties](https://nemtech.github.io/concepts/account-filter.html) for a given account. 
+     * Returns the configurable properties for a given account.
      * @param {String} accountId The public key or address of the account.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AccountPropertiesInfoDTO}
      */
@@ -245,7 +245,7 @@ export default class AccountRoutesApi {
 
     /**
      * Get account properties for given array of addresses
-     * Returns the [configurable properties](https://nemtech.github.io/concepts/account-filter.html) for a given array of addresses. 
+     * Returns the configurable properties for a given array of addresses.
      * @param {module:model/AccountsIds} accounstIds 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/AccountPropertiesInfoDTO>} and HTTP response
      */
@@ -281,7 +281,7 @@ export default class AccountRoutesApi {
 
     /**
      * Get account properties for given array of addresses
-     * Returns the [configurable properties](https://nemtech.github.io/concepts/account-filter.html) for a given array of addresses. 
+     * Returns the configurable properties for a given array of addresses.
      * @param {module:model/AccountsIds} accounstIds 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/AccountPropertiesInfoDTO>}
      */
@@ -471,7 +471,7 @@ export default class AccountRoutesApi {
 
     /**
      * Get aggregate bonded transactions information
-     * Gets an array of [aggregate bonded transactions](https://nemtech.github.io/concepts/aggregate-transaction.html) where the account is the sender or requires to cosign the transaction. 
+     * Gets an array of aggregate bonded transactions where the account is the sender or requires to cosign the transaction. 
      * @param {String} publicKey The public key of the account.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.pageSize The number of transactions to return for each request. (default to 10)
@@ -516,7 +516,7 @@ export default class AccountRoutesApi {
 
     /**
      * Get aggregate bonded transactions information
-     * Gets an array of [aggregate bonded transactions](https://nemtech.github.io/concepts/aggregate-transaction.html) where the account is the sender or requires to cosign the transaction. 
+     * Gets an array of aggregate bonded transactions where the account is the sender or requires to cosign the transaction. 
      * @param {String} publicKey The public key of the account.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.pageSize The number of transactions to return for each request. (default to 10)
