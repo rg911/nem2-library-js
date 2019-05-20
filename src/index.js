@@ -584,7 +584,7 @@ export {
     * @property {module:api/TransactionRoutesApi}
     */
     TransactionRoutesApi,
-    
+
     /**
      * @property {module:transactions/AccountLinkTransaction}
      */
