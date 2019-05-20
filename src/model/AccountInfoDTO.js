@@ -37,7 +37,8 @@ export default class AccountInfoDTO {
     constructor(meta, account) {
         
 
-
+        
+        
 
         this['meta'] = meta;this['account'] = account;
 

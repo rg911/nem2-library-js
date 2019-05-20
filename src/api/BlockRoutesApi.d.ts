@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 NEM
+ * Copyright 2019 NEM
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,14 +16,20 @@
 
 import {ApiClient} from "../ApiClient";
 
-export declare class BlockchainRoutesApi {
+export declare class BlockRoutesApi {
     constructor(apiClient?: ApiClient);
 
     getBlockByHeight(height: number): Promise<any>;
+    
+    getBlockReceipts(height: number): Promise<any>;
 
     getBlockTransactions(height: number, queryParams: any): Promise<any>;
 
     getBlocksByHeightWithLimit(height: number, limit: number): Promise<any>;
+
+    getMerkleReceipts(height: number, hash: string): Promise<any>;
+
+    getMerkleTransaction(height: number, hash: string): Promise<any>;
 
     getBlockchainHeight(): Promise<any>;
 

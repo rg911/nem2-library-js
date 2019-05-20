@@ -35,7 +35,8 @@ export default class MultisigAccountInfoDTO {
     constructor(multisig) {
         
 
-
+        
+        
 
         this['multisig'] = multisig;
 

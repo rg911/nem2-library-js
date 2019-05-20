@@ -39,7 +39,8 @@ export default class ResolutionStatementDTO {
     constructor(height, unresolved, resolutionEntries) {
         
 
-
+        
+        
 
         this['height'] = height;this['unresolved'] = unresolved;this['resolutionEntries'] = resolutionEntries;
 

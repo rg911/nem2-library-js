@@ -36,7 +36,8 @@ export default class StorageInfoDTO {
     constructor(numBlocks, numTransactions, numAccounts) {
         
 
-
+        
+        
 
         this['numBlocks'] = numBlocks;this['numTransactions'] = numTransactions;this['numAccounts'] = numAccounts;
 

@@ -40,7 +40,8 @@ export default class TransactionStatementDTO {
     constructor(height, source, receipts) {
         
 
-
+        
+        
 
         this['height'] = height;this['source'] = source;this['receipts'] = receipts;
 

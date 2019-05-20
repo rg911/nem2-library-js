@@ -35,7 +35,8 @@ export default class ServerInfoDTO {
     constructor(restVersion, sdkVersion) {
         
 
-
+        
+        
 
         this['restVersion'] = restVersion;this['sdkVersion'] = sdkVersion;
 

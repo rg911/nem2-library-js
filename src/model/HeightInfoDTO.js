@@ -35,7 +35,8 @@ export default class HeightInfoDTO {
     constructor(height) {
         
 
-
+        
+        
 
         this['height'] = height;
 

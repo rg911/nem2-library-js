@@ -38,7 +38,8 @@ export default class MultisigDTO {
     constructor(account, minApproval, minRemoval, cosignatories, multisigAccounts) {
         
 
-
+        
+        
 
         this['account'] = account;this['minApproval'] = minApproval;this['minRemoval'] = minRemoval;this['cosignatories'] = cosignatories;this['multisigAccounts'] = multisigAccounts;
 

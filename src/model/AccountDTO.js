@@ -42,7 +42,8 @@ export default class AccountDTO {
     constructor(address, addressHeight, publicKey, publicKeyHeight, mosaics, importance, importanceHeight) {
         
 
-
+        
+        
 
         this['address'] = address;this['addressHeight'] = addressHeight;this['publicKey'] = publicKey;this['publicKeyHeight'] = publicKeyHeight;this['mosaics'] = mosaics;this['importance'] = importance;this['importanceHeight'] = importanceHeight;
 

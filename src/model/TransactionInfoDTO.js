@@ -37,7 +37,8 @@ export default class TransactionInfoDTO {
     constructor(meta, transaction) {
         
 
-
+        
+        
 
         this['meta'] = meta;this['transaction'] = transaction;
 

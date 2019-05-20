@@ -35,7 +35,8 @@ export default class AccountPropertiesInfoDTO {
     constructor(accountProperties) {
         
 
-
+        
+        
 
         this['accountProperties'] = accountProperties;
 

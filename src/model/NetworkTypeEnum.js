@@ -15,50 +15,60 @@
 import ApiClient from '../ApiClient';
 
 
+
+
+
 /**
-* Enum class NetworkTypeEnum.
-* @enum {}
-* @readonly
+* The NetworkTypeEnum model module.
+* @module model/NetworkTypeEnum
+* @version 0.7.15
 */
 export default class NetworkTypeEnum {
-    
-        /**
-         * value: 104
-         * @const
-         */
-        104 = 104;
+    /**
+    * Constructs a new <code>NetworkTypeEnum</code>.
+    * The entity version. The higher byte represents the network identifier: * 0x68 (MAIN_NET) - Public main network. * 0x98 (TEST_NET) - Public test network. * 0x60 (MIJIN) - Private network. * 0x90 (MIJIN_TEST) - Private test network. 
+    * @alias module:model/NetworkTypeEnum
+    * @class
+    */
 
-    
-        /**
-         * value: 152
-         * @const
-         */
-        152 = 152;
+    constructor() {
+        
 
-    
-        /**
-         * value: 96
-         * @const
-         */
-        96 = 96;
+        
+        
 
-    
-        /**
-         * value: 144
-         * @const
-         */
-        144 = 144;
+        
 
-    
+        
+    }
 
     /**
-    * Returns a <code>NetworkTypeEnum</code> enum value from a Javascript object name.
-    * @param {Object} data The plain JavaScript object containing the name of the enum value.
-    * @return {module:model/NetworkTypeEnum} The enum <code>NetworkTypeEnum</code> value.
+    * Constructs a <code>NetworkTypeEnum</code> from a plain JavaScript object, optionally creating a new instance.
+    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+    * @param {Object} data The plain JavaScript object bearing properties of interest.
+    * @param {module:model/NetworkTypeEnum} obj Optional instance to populate.
+    * @return {module:model/NetworkTypeEnum} The populated <code>NetworkTypeEnum</code> instance.
     */
-    static constructFromObject(object) {
-        return object;
+    static constructFromObject(data, obj) {
+        if (data) {
+            obj = obj || new NetworkTypeEnum();
+
+            
+            
+            
+
+        }
+        return obj;
     }
+
+
+
+
+
+
+
+
+
 }
 
 

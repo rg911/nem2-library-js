@@ -45,7 +45,8 @@ export default class NamespaceDTO {
     constructor(owner, ownerAddress, startHeight, endHeight, depth, level0, type, alias, parentId) {
         
 
-
+        
+        
 
         this['owner'] = owner;this['ownerAddress'] = ownerAddress;this['startHeight'] = startHeight;this['endHeight'] = endHeight;this['depth'] = depth;this['level0'] = level0;this['type'] = type;this['alias'] = alias;this['parentId'] = parentId;
 

@@ -36,7 +36,8 @@ export default class AliasDTO {
     constructor(type) {
         
 
-
+        
+        
 
         this['type'] = type;
 

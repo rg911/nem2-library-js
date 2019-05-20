@@ -36,7 +36,8 @@ export default class MosaicNameDTO {
     constructor(mosaicId, names) {
         
 
-
+        
+        
 
         this['mosaicId'] = mosaicId;this['names'] = names;
 

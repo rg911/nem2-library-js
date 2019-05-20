@@ -36,7 +36,8 @@ export default class MultisigAccountGraphInfoDTO {
     constructor(level, multisigEntries) {
         
 
-
+        
+        
 
         this['level'] = level;this['multisigEntries'] = multisigEntries;
 
