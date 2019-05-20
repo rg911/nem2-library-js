@@ -38,7 +38,8 @@ export default class MosaicPropertiesDTO extends Array {
         super();
         
 
-
+        
+        
 
         
 

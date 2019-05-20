@@ -36,7 +36,8 @@ export default class NamespaceMetaDTO {
     constructor(id, active, index) {
         
 
-
+        
+        
 
         this['id'] = id;this['active'] = active;this['index'] = index;
 

@@ -34,7 +34,8 @@ export default class AnnounceTransactionInfoDTO {
     constructor(message) {
         
 
-
+        
+        
 
         this['message'] = message;
 

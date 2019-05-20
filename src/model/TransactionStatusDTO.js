@@ -35,7 +35,8 @@ export default class TransactionStatusDTO {
     constructor(status) {
         
 
-
+        
+        
 
         this['status'] = status;
 

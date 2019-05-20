@@ -37,7 +37,8 @@ export default class NamespaceInfoDTO {
     constructor(meta, namespace) {
         
 
-
+        
+        
 
         this['meta'] = meta;this['namespace'] = namespace;
 

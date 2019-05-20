@@ -35,7 +35,8 @@ export default class NodeTimeDTO {
     constructor(communicationTimestamps) {
         
 
-
+        
+        
 
         this['communicationTimestamps'] = communicationTimestamps;
 
