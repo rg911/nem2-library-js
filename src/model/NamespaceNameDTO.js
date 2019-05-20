@@ -36,7 +36,8 @@ export default class NamespaceNameDTO {
     constructor(namespaceId, name) {
         
 
-
+        
+        
 
         this['namespaceId'] = namespaceId;this['name'] = name;
 

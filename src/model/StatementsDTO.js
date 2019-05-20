@@ -39,7 +39,8 @@ export default class StatementsDTO {
     constructor(transactionStatements, addressResolutionStatements, mosaicResolutionStatements) {
         
 
-
+        
+        
 
         this['transactionStatements'] = transactionStatements;this['addressResolutionStatements'] = addressResolutionStatements;this['mosaicResolutionStatements'] = mosaicResolutionStatements;
 

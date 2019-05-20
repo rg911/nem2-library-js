@@ -34,7 +34,8 @@ export default class MosaicMetaDTO {
     constructor(id) {
         
 
-
+        
+        
 
         this['id'] = id;
 

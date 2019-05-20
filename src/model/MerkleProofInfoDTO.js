@@ -36,7 +36,8 @@ export default class MerkleProofInfoDTO {
     constructor(payload, type) {
         
 
-
+        
+        
 
         this['payload'] = payload;this['type'] = type;
 

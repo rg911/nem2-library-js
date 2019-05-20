@@ -39,7 +39,8 @@ export default class TransactionMetaDTO {
     constructor(height, hash, merkleComponentHash, index, id) {
         
 
-
+        
+        
 
         this['height'] = height;this['hash'] = hash;this['merkleComponentHash'] = merkleComponentHash;this['index'] = index;this['id'] = id;
 

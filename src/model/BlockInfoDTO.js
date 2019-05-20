@@ -37,7 +37,8 @@ export default class BlockInfoDTO {
     constructor(meta, block) {
         
 
-
+        
+        
 
         this['meta'] = meta;this['block'] = block;
 

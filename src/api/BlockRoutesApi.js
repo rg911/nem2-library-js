@@ -90,7 +90,7 @@ export default class BlockRoutesApi {
 
     /**
      * Get receipts from a block
-     * Returns the [receipts](https://nemtech.github.io/concepts/receipt.html) linked to a block.
+     * Returns the receipts linked to a block.
      * @param {Number} height The height of the block.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/StatementsDTO} and HTTP response
      */
@@ -127,7 +127,7 @@ export default class BlockRoutesApi {
 
     /**
      * Get receipts from a block
-     * Returns the [receipts](https://nemtech.github.io/concepts/receipt.html) linked to a block.
+     * Returns the receipts linked to a block.
      * @param {Number} height The height of the block.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/StatementsDTO}
      */
@@ -141,7 +141,7 @@ export default class BlockRoutesApi {
 
     /**
      * Get transactions from a block
-     * Returns an array of [transactions](https://nemtech.github.io/concepts/transaction.html) included in a block for a given block height.
+     * Returns an array of transactions included in a block for a given block height.
      * @param {Number} height The height of the block.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.pageSize The number of transactions to return for each request. (default to 10)
@@ -184,7 +184,7 @@ export default class BlockRoutesApi {
 
     /**
      * Get transactions from a block
-     * Returns an array of [transactions](https://nemtech.github.io/concepts/transaction.html) included in a block for a given block height.
+     * Returns an array of transactions included in a block for a given block height.
      * @param {Number} height The height of the block.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.pageSize The number of transactions to return for each request. (default to 10)
@@ -260,7 +260,7 @@ export default class BlockRoutesApi {
 
     /**
      * Get the merkle path for a given a receipt statement hash and block
-     * Returns the merkle path for a [receipt statement or resolution](https://nemtech.github.io/concepts/receipt.html) linked to a block. The path is the complementary data needed to calculate the merkle root. A client can compare if the calculated root equals the one recorded in the block header, verifying that the receipt was linked with the block.
+     * Returns the merkle path for a receipt statement or resolution linked to a block. The path is the complementary data needed to calculate the merkle root. A client can compare if the calculated root equals the one recorded in the block header, verifying that the receipt was linked with the block. 
      * @param {Number} height The height of the block.
      * @param {String} hash The hash of the receipt statement or resolution.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MerkleProofInfoDTO} and HTTP response
@@ -304,7 +304,7 @@ export default class BlockRoutesApi {
 
     /**
      * Get the merkle path for a given a receipt statement hash and block
-     * Returns the merkle path for a [receipt statement or resolution](https://nemtech.github.io/concepts/receipt.html) linked to a block. The path is the complementary data needed to calculate the merkle root. A client can compare if the calculated root equals the one recorded in the block header, verifying that the receipt was linked with the block.
+     * Returns the merkle path for a receipt statement or resolution linked to a block. The path is the complementary data needed to calculate the merkle root. A client can compare if the calculated root equals the one recorded in the block header, verifying that the receipt was linked with the block. 
      * @param {Number} height The height of the block.
      * @param {String} hash The hash of the receipt statement or resolution.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MerkleProofInfoDTO}
@@ -319,7 +319,7 @@ export default class BlockRoutesApi {
 
     /**
      * Get the merkle path for a given a transaction and block
-     * Returns the merkle path for a [transaction](https://nemtech.github.io/concepts/transaction.html) included in a block. The path is the complementary data needed to calculate the merkle root. A client can compare if the calculated root equals the one recorded in the block header, verifying that the transaction was included in the block.
+     * Returns the merkle path for a transaction included in a block. The path is the complementary data needed to calculate the merkle root. A client can compare if the calculated root equals the one recorded in the block header, verifying that the transaction was included in the block. 
      * @param {Number} height The height of the block.
      * @param {String} hash The hash of the transaction.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MerkleProofInfoDTO} and HTTP response
@@ -363,7 +363,7 @@ export default class BlockRoutesApi {
 
     /**
      * Get the merkle path for a given a transaction and block
-     * Returns the merkle path for a [transaction](https://nemtech.github.io/concepts/transaction.html) included in a block. The path is the complementary data needed to calculate the merkle root. A client can compare if the calculated root equals the one recorded in the block header, verifying that the transaction was included in the block.
+     * Returns the merkle path for a transaction included in a block. The path is the complementary data needed to calculate the merkle root. A client can compare if the calculated root equals the one recorded in the block header, verifying that the transaction was included in the block. 
      * @param {Number} height The height of the block.
      * @param {String} hash The hash of the transaction.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MerkleProofInfoDTO}

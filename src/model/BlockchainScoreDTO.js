@@ -36,7 +36,8 @@ export default class BlockchainScoreDTO {
     constructor(scoreHigh, scoreLow) {
         
 
-
+        
+        
 
         this['scoreHigh'] = scoreHigh;this['scoreLow'] = scoreLow;
 
