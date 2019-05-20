@@ -282,7 +282,7 @@ Catapult.Buffers.SecretProofTransactionBuffer.prototype.proofArray = function() 
  * @param {flatbuffers.Builder} builder
  */
 Catapult.Buffers.SecretProofTransactionBuffer.startSecretProofTransactionBuffer = function(builder) {
-	builder.startObject(11);
+	builder.startObject(12);
 };
 
 /**
