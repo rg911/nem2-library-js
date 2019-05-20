@@ -224,7 +224,7 @@ Catapult.Buffers.SecretProofTransactionBuffer.prototype.secretArray = function()
  * @param {number} index
  * @returns {number}
  */
-Catapult.Buffers.SecretProofTransactionBuffer.prototype.recipient = function (index) {
+Catapult.Buffers.SecretProofTransactionBuffer.prototype.recipient = function(index) {
 	var offset = this.bb.__offset(this.bb_pos, 22);
 	return offset ? this.bb.readUint8(this.bb.__vector(this.bb_pos + offset) + index) : 0;
 };
@@ -232,7 +232,7 @@ Catapult.Buffers.SecretProofTransactionBuffer.prototype.recipient = function (in
 /**
  * @returns {number}
  */
-Catapult.Buffers.SecretProofTransactionBuffer.prototype.recipientLength = function () {
+Catapult.Buffers.SecretProofTransactionBuffer.prototype.recipientLength = function() {
 	var offset = this.bb.__offset(this.bb_pos, 22);
 	return offset ? this.bb.__vector_len(this.bb_pos + offset) : 0;
 };
@@ -240,7 +240,7 @@ Catapult.Buffers.SecretProofTransactionBuffer.prototype.recipientLength = functi
 /**
  * @returns {Uint8Array}
  */
-Catapult.Buffers.SecretProofTransactionBuffer.prototype.recipientArray = function () {
+Catapult.Buffers.SecretProofTransactionBuffer.prototype.recipientArray = function() {
 	var offset = this.bb.__offset(this.bb_pos, 22);
 	return offset ? new Uint8Array(this.bb.bytes().buffer, this.bb.bytes().byteOffset + this.bb.__vector(this.bb_pos + offset), this.bb.__vector_len(this.bb_pos + offset)) : null;
 };
@@ -466,7 +466,7 @@ Catapult.Buffers.SecretProofTransactionBuffer.startSecretVector = function(build
  * @param {flatbuffers.Builder} builder
  * @param {flatbuffers.Offset} recipientOffset
  */
-Catapult.Buffers.SecretProofTransactionBuffer.addRecipient = function (builder, recipientOffset) {
+Catapult.Buffers.SecretProofTransactionBuffer.addRecipient = function(builder, recipientOffset) {
 	builder.addFieldOffset(9, recipientOffset, 0);
 };
 
@@ -475,7 +475,7 @@ Catapult.Buffers.SecretProofTransactionBuffer.addRecipient = function (builder, 
  * @param {Array.<number>} data
  * @returns {flatbuffers.Offset}
  */
-Catapult.Buffers.SecretProofTransactionBuffer.createRecipientVector = function (builder, data) {
+Catapult.Buffers.SecretProofTransactionBuffer.createRecipientVector = function(builder, data) {
 	builder.startVector(1, data.length, 1);
 	for (var i = data.length - 1; i >= 0; i--) {
 		builder.addInt8(data[i]);
@@ -487,7 +487,7 @@ Catapult.Buffers.SecretProofTransactionBuffer.createRecipientVector = function (
  * @param {flatbuffers.Builder} builder
  * @param {number} numElems
  */
-Catapult.Buffers.SecretProofTransactionBuffer.startRecipientVector = function (builder, numElems) {
+Catapult.Buffers.SecretProofTransactionBuffer.startRecipientVector = function(builder, numElems) {
 	builder.startVector(1, numElems, 1);
 };
 

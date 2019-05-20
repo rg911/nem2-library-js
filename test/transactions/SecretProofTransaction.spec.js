@@ -32,21 +32,22 @@ describe('SecretProofTransaction', () => {
 			deadline: deadline(),
 			hashAlgorithm: 0,
 			secret: hash.hex(),
+			recipient: 'SDUP5PLHDXKBX3UU5Q52LAY4WYEKGEWC6IB3VBFM',
 			proof: '9a493664'
 		};
 		const verifiableTransaction = new SecretProofTransaction.Builder()
 			.addDeadline(secretProofTransaction.deadline)
 			.addHashAlgorithm(secretProofTransaction.hashAlgorithm)
 			.addSecret(secretProofTransaction.secret)
+			.addRecipient(secretProofTransaction.recipient)
 			.addProof(secretProofTransaction.proof)
 			.build();
 
 		const transactionPayload = verifiableTransaction.signTransaction(keyPair);
-
 		expect(transactionPayload.payload.substring(
 			240,
 			transactionPayload.payload.length
 		)).to.be.equal('00B778A39A3663719DFC5E48C9D78431B1E45C2AF9DF538782BF199C189DABEAC7' +
-			'680ADA57DCEC8EEE91C4E3BF3BFA9AF6FFDE90CD1D249D1C6121D7B759A001B104009A493664');
+			'680ADA57DCEC8EEE91C4E3BF3BFA9AF6FFDE90CD1D249D1C6121D7B759A001B190E8FEBD671DD41BEE94EC3BA5831CB608A312C2F203BA84AC0400009A493664');
 	});
 });
