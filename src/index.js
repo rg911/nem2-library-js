@@ -69,7 +69,6 @@ import NetworkTypeDTO from './model/NetworkTypeDTO';
 import NetworkTypeEnum from './model/NetworkTypeEnum';
 import NodeInfoDTO from './model/NodeInfoDTO';
 import NodeTimeDTO from './model/NodeTimeDTO';
-import ReceiptDTO from './model/ReceiptDTO';
 import ReceiptTypeEnum from './model/ReceiptTypeEnum';
 import ResolutionEntryDTO from './model/ResolutionEntryDTO';
 import ResolutionStatementDTO from './model/ResolutionStatementDTO';
@@ -79,7 +78,6 @@ import ServerInfoDTO from './model/ServerInfoDTO';
 import SourceDTO from './model/SourceDTO';
 import StatementsDTO from './model/StatementsDTO';
 import StorageInfoDTO from './model/StorageInfoDTO';
-import TransactionDTO from './model/TransactionDTO';
 import TransactionHashes from './model/TransactionHashes';
 import TransactionIds from './model/TransactionIds';
 import TransactionInfoDTO from './model/TransactionInfoDTO';
@@ -418,12 +416,6 @@ export {
     NodeTimeDTO,
 
     /**
-     * The ReceiptDTO model constructor.
-     * @property {module:model/ReceiptDTO}
-     */
-    ReceiptDTO,
-
-    /**
      * The ReceiptTypeEnum model constructor.
      * @property {module:model/ReceiptTypeEnum}
      */
@@ -476,12 +468,6 @@ export {
      * @property {module:model/StorageInfoDTO}
      */
     StorageInfoDTO,
-
-    /**
-     * The TransactionDTO model constructor.
-     * @property {module:model/TransactionDTO}
-     */
-    TransactionDTO,
 
     /**
      * The TransactionHashes model constructor.
@@ -584,7 +570,7 @@ export {
     * @property {module:api/TransactionRoutesApi}
     */
     TransactionRoutesApi,
-    
+
     /**
      * @property {module:transactions/AccountLinkTransaction}
      */
