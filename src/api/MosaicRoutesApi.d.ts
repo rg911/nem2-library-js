@@ -23,7 +23,5 @@ export declare class MosaicRoutesApi {
 
     getMosaics(mosaicIds: any): Promise<any>;
 
-    getMosaicsFromNamespace(namespaceId: string, queryParams: any): Promise<any>;
-
-    getMosaicsName(mosaicIds: any): Promise<any>;
+    getMosaicsNames(mosaicIds: any): Promise<any>;
 }

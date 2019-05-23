@@ -45,7 +45,7 @@ export default class AccountDTO {
     * Constructs a new <code>AccountDTO</code>.
     * @alias module:model/AccountDTO
     * @class
-    * @param address {String} The account unique address not encoded. 
+    * @param address {String} The account unique address in hexadecimal. 
     * @param addressHeight {module:model/UInt64DTO} 
     * @param publicKey {String} The public key of an account can be used to verify signatures of the account. Only accounts that have already published a transaction have a public key assigned to the account. Otherwise, the field is null. 
     * @param publicKeyHeight {module:model/UInt64DTO} 
@@ -106,7 +106,7 @@ export default class AccountDTO {
     }
 
     /**
-    * The account unique address not encoded. 
+    * The account unique address in hexadecimal. 
     * @member {String} address
     */
     address = undefined;

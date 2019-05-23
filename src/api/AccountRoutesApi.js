@@ -29,6 +29,7 @@
 
 import ApiClient from "../ApiClient";
 import AccountInfoDTO from '../model/AccountInfoDTO';
+import AccountNamesDTO from '../model/AccountNamesDTO';
 import AccountPropertiesInfoDTO from '../model/AccountPropertiesInfoDTO';
 import AccountsIds from '../model/AccountsIds';
 import MultisigAccountGraphInfoDTO from '../model/MultisigAccountGraphInfoDTO';
@@ -353,6 +354,56 @@ export default class AccountRoutesApi {
      */
     getAccountsInfo(accountsIds) {
       return this.getAccountsInfoWithHttpInfo(accountsIds)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Get readable names for a set of accountIds.
+     * Returns friendly names for accounts.
+     * @param {module:model/AccountsIds} accountIds 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/AccountNamesDTO>} and HTTP response
+     */
+    getAccountsNamesWithHttpInfo(accountIds) {
+      let postBody = accountIds;
+
+      // verify the required parameter 'accountIds' is set
+      if (accountIds === undefined || accountIds === null) {
+        throw new Error("Missing the required parameter 'accountIds' when calling getAccountsNames");
+      }
+
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = [AccountNamesDTO];
+
+      return this.apiClient.callApi(
+        '/account/names', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Get readable names for a set of accountIds.
+     * Returns friendly names for accounts.
+     * @param {module:model/AccountsIds} accountIds 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/AccountNamesDTO>}
+     */
+    getAccountsNames(accountIds) {
+      return this.getAccountsNamesWithHttpInfo(accountIds)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

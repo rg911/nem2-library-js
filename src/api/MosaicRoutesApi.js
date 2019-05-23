@@ -30,7 +30,7 @@
 import ApiClient from "../ApiClient";
 import MosaicIds from '../model/MosaicIds';
 import MosaicInfoDTO from '../model/MosaicInfoDTO';
-import MosaicNameDTO from '../model/MosaicNameDTO';
+import MosaicNamesDTO from '../model/MosaicNamesDTO';
 
 /**
 * MosaicRoutes service.
@@ -157,14 +157,14 @@ export default class MosaicRoutesApi {
      * Get readable names for a set of mosaics
      * Returns friendly names for mosaics.
      * @param {module:model/MosaicIds} mosaicIds 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/MosaicNameDTO>} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/MosaicNamesDTO>} and HTTP response
      */
-    getMosaicsNameWithHttpInfo(mosaicIds) {
+    getMosaicsNamesWithHttpInfo(mosaicIds) {
       let postBody = mosaicIds;
 
       // verify the required parameter 'mosaicIds' is set
       if (mosaicIds === undefined || mosaicIds === null) {
-        throw new Error("Missing the required parameter 'mosaicIds' when calling getMosaicsName");
+        throw new Error("Missing the required parameter 'mosaicIds' when calling getMosaicsNames");
       }
 
 
@@ -180,7 +180,7 @@ export default class MosaicRoutesApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = [MosaicNameDTO];
+      let returnType = [MosaicNamesDTO];
 
       return this.apiClient.callApi(
         '/mosaic/names', 'POST',
@@ -193,10 +193,10 @@ export default class MosaicRoutesApi {
      * Get readable names for a set of mosaics
      * Returns friendly names for mosaics.
      * @param {module:model/MosaicIds} mosaicIds 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/MosaicNameDTO>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/MosaicNamesDTO>}
      */
-    getMosaicsName(mosaicIds) {
-      return this.getMosaicsNameWithHttpInfo(mosaicIds)
+    getMosaicsNames(mosaicIds) {
+      return this.getMosaicsNamesWithHttpInfo(mosaicIds)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
