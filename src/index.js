@@ -31,6 +31,7 @@ import ApiClient from './ApiClient';
 import AccountDTO from './model/AccountDTO';
 import AccountInfoDTO from './model/AccountInfoDTO';
 import AccountMetaDTO from './model/AccountMetaDTO';
+import AccountNamesDTO from './model/AccountNamesDTO';
 import AccountPropertiesDTO from './model/AccountPropertiesDTO';
 import AccountPropertiesInfoDTO from './model/AccountPropertiesInfoDTO';
 import AccountPropertyDTO from './model/AccountPropertyDTO';
@@ -53,8 +54,9 @@ import MosaicDefinitionDTO from './model/MosaicDefinitionDTO';
 import MosaicIds from './model/MosaicIds';
 import MosaicInfoDTO from './model/MosaicInfoDTO';
 import MosaicMetaDTO from './model/MosaicMetaDTO';
-import MosaicNameDTO from './model/MosaicNameDTO';
-import MosaicPropertiesDTO from './model/MosaicPropertiesDTO';
+import MosaicNamesDTO from './model/MosaicNamesDTO';
+import MosaicPropertyDTO from './model/MosaicPropertyDTO';
+import MosaicPropertyIdEnum from './model/MosaicPropertyIdEnum';
 import MultisigAccountGraphInfoDTO from './model/MultisigAccountGraphInfoDTO';
 import MultisigAccountInfoDTO from './model/MultisigAccountInfoDTO';
 import MultisigDTO from './model/MultisigDTO';
@@ -186,6 +188,12 @@ export {
      * @property {module:model/AccountMetaDTO}
      */
     AccountMetaDTO,
+
+    /**
+     * The AccountNamesDTO model constructor.
+     * @property {module:model/AccountNamesDTO}
+     */
+    AccountNamesDTO,
 
     /**
      * The AccountPropertiesDTO model constructor.
@@ -320,16 +328,22 @@ export {
     MosaicMetaDTO,
 
     /**
-     * The MosaicNameDTO model constructor.
-     * @property {module:model/MosaicNameDTO}
+     * The MosaicNamesDTO model constructor.
+     * @property {module:model/MosaicNamesDTO}
      */
-    MosaicNameDTO,
+    MosaicNamesDTO,
 
     /**
-     * The MosaicPropertiesDTO model constructor.
-     * @property {module:model/MosaicPropertiesDTO}
+     * The MosaicPropertyDTO model constructor.
+     * @property {module:model/MosaicPropertyDTO}
      */
-    MosaicPropertiesDTO,
+    MosaicPropertyDTO,
+
+    /**
+     * The MosaicPropertyIdEnum model constructor.
+     * @property {module:model/MosaicPropertyIdEnum}
+     */
+    MosaicPropertyIdEnum,
 
     /**
      * The MultisigAccountGraphInfoDTO model constructor.

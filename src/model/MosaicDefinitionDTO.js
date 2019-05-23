@@ -28,7 +28,7 @@
 
 
 import ApiClient from '../ApiClient';
-import MosaicPropertiesDTO from './MosaicPropertiesDTO';
+import MosaicPropertyDTO from './MosaicPropertyDTO';
 import UInt64DTO from './UInt64DTO';
 
 
@@ -50,7 +50,7 @@ export default class MosaicDefinitionDTO {
     * @param height {module:model/UInt64DTO} 
     * @param owner {String} The public key of the mosaic owner.
     * @param revision {Number} The number of definitions for the same mosaic.
-    * @param properties {module:model/MosaicPropertiesDTO} 
+    * @param properties {Array.<module:model/MosaicPropertyDTO>} 
     * @param levy {Object} 
     */
 
@@ -96,7 +96,7 @@ export default class MosaicDefinitionDTO {
                 obj['revision'] = ApiClient.convertToType(data['revision'], 'Number');
             }
             if (data.hasOwnProperty('properties')) {
-                obj['properties'] = MosaicPropertiesDTO.constructFromObject(data['properties']);
+                obj['properties'] = ApiClient.convertToType(data['properties'], [MosaicPropertyDTO]);
             }
             if (data.hasOwnProperty('levy')) {
                 obj['levy'] = ApiClient.convertToType(data['levy'], Object);
@@ -128,7 +128,7 @@ export default class MosaicDefinitionDTO {
     */
     revision = undefined;
     /**
-    * @member {module:model/MosaicPropertiesDTO} properties
+    * @member {Array.<module:model/MosaicPropertyDTO>} properties
     */
     properties = undefined;
     /**
