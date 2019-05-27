@@ -17,6 +17,7 @@
 import expect from 'expect.js';
 import TransferTransaction from '../../src/transactions/TransferTransaction';
 import deadline from '../../src/transactions/Deadline';
+import testUtilsSpec from '../testUtils.spec';
 
 describe('TransferTransaction', () => {
 	const keyPair = {
@@ -50,7 +51,7 @@ describe('TransferTransaction', () => {
 			.addMosaics(transferTransaction.mosaics)
 			.build();
 
-		const transactionPayload = verifiableTransaction.signTransaction(keyPair);
+		const transactionPayload = verifiableTransaction.signTransaction(keyPair, testUtilsSpec.generationHash);
 
 		expect(transactionPayload.payload.substring(
 			240,
@@ -86,7 +87,7 @@ describe('TransferTransaction', () => {
 			.addMosaics(transferTransaction.mosaics)
 			.build();
 
-		const transactionPayload = verifiableTransaction.signTransaction(keyPair);
+		const transactionPayload = verifiableTransaction.signTransaction(keyPair, testUtilsSpec.generationHash);
 
 		expect(transactionPayload.payload.substring(
 			240,
@@ -122,7 +123,7 @@ describe('TransferTransaction', () => {
 			.addMosaics(transferTransaction.mosaics)
 			.build();
 
-		const transactionPayload = verifiableTransaction.signTransaction(keyPair);
+		const transactionPayload = verifiableTransaction.signTransaction(keyPair, testUtilsSpec.generationHash);
 
 		expect(transactionPayload.payload.substring(
 			240,

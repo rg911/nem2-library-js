@@ -19,6 +19,7 @@ import NamespaceCreationTransaction from '../../src/transactions/NamespaceCreati
 import deadline from '../../src/transactions/Deadline';
 import { namespaceId, subnamespaceNamespaceId, subnamespaceParentId } from '../../src/transactions/NamespaceMosaicId';
 import uint64 from '../../src/coders/uint64';
+import testUtilsSpec from '../testUtils.spec';
 
 describe('NamespaceCreationTransaction', () => {
 	const keyPair = {
@@ -43,7 +44,7 @@ describe('NamespaceCreationTransaction', () => {
 			.addNamespaceName(namespaceCreationTransaction.namespaceName)
 			.build();
 
-		const transactionPayload = verifiableTransaction.signTransaction(keyPair);
+		const transactionPayload = verifiableTransaction.signTransaction(keyPair, testUtilsSpec.generationHash);
 		expect(transactionPayload.payload.substring(240, transactionPayload.payload.length))
 			.to.be.equal('0010270000000000007EE9B3B8AFDF53C00C6E65776E616D657370616365');
 	});
@@ -66,7 +67,7 @@ describe('NamespaceCreationTransaction', () => {
 			.addParentId(namespaceCreationTransaction.parentId)
 			.build();
 
-		const transactionPayload = verifiableTransaction.signTransaction(keyPair);
+		const transactionPayload = verifiableTransaction.signTransaction(keyPair, testUtilsSpec.generationHash);
 
 		expect(transactionPayload.payload.substring(240, transactionPayload.payload.length))
 			.to.be.equal('017EE9B3B8AFDF53C028ED7825B972AC9D0473756232');

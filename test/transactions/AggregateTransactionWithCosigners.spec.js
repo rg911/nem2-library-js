@@ -18,6 +18,7 @@ import expect from 'expect.js';
 import TransferTransaction from '../../src/transactions/TransferTransaction';
 import deadline from '../../src/transactions/Deadline';
 import AggregateTransaction from '../../src/transactions/AggregateTransaction';
+import testUtilsSpec from '../testUtils.spec';
 
 describe('AggregateTransactionWithCosigners', () => {
 	const aliceKeyPair = {
@@ -68,7 +69,7 @@ describe('AggregateTransactionWithCosigners', () => {
 			.addTransactions(aggregateTransaction.transactions)
 			.build();
 
-		const transactionPayload = verifiableTransaction.signTransactionWithCosigners(aliceKeyPair, [bobKeyPair]);
+		const transactionPayload = verifiableTransaction.signTransactionWithCosigners(aliceKeyPair, [bobKeyPair], testUtilsSpec.generationHash);
 
 		expect(transactionPayload.payload.substring(240, transactionPayload.payload.length - 128))
 			.to.be.equal('5900000059000000B694186EE4AB0558CA4AFCFDD43B42114AE71094F5A1FC4A913FE9971CACD21D039' +

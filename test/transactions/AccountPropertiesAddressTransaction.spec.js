@@ -17,6 +17,7 @@
 import expect from 'expect.js';
 import AccountPropertiesAddressTransaction from '../../src/transactions/AccountPropertiesAddressTransaction';
 import deadline from '../../src/transactions/Deadline';
+import testUtilsSpec from '../testUtils.spec';
 
 describe('AccountPropertiesAddressTransaction', () => {
 	const keyPair = {
@@ -38,7 +39,7 @@ describe('AccountPropertiesAddressTransaction', () => {
 			.addModifications(accountPropertiesAddressTransaction.modifications)
 			.build();
 
-		const transactionPayload = transaction.signTransaction(keyPair);
+		const transactionPayload = transaction.signTransaction(keyPair, testUtilsSpec.generationHash);
 		expect(transactionPayload.payload.substring(240, transactionPayload.payload.length))
 			.to.be.equal('01010090E8FEBD671DD41BEE94EC3BA5831CB608A312C2F203BA84AC');
 	});

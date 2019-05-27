@@ -22,7 +22,7 @@ export declare interface SignedTransaction {
 export declare class VerifiableTransaction {
     static createTransactionHash(transactionPayload: string): string
 
-    public signTransaction(keyPair: any): {payload: string, hash:string}
+    public signTransaction(keyPair: any, generationHash: string): {payload: string, hash:string}
 
     public signCosignatoriesTransaction(keyPair: any): {parentHash: string, signature:string, signer: string}
 
