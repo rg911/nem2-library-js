@@ -21,6 +21,7 @@ import SecretLockTransaction from '../../src/transactions/SecretLockTransaction'
 import deadline from '../../src/transactions/Deadline';
 import uint64 from '../../src/coders/uint64';
 import { HashAlgorithm } from '../../src/coders/hashAlgorithm';
+import testUtilsSpec from '../testUtils.spec';
 
 describe('SecretLockTransaction', () => {
 	const keyPair = {
@@ -49,7 +50,7 @@ describe('SecretLockTransaction', () => {
 			.addRecipient(secretLockTransaction.recipient)
 			.build();
 
-		const transactionPayload = verifiableTransaction.signTransaction(keyPair);
+		const transactionPayload = verifiableTransaction.signTransaction(keyPair, testUtilsSpec.generationHash);
 
 		expect(transactionPayload.payload.substring(
 			240,
@@ -80,7 +81,7 @@ describe('SecretLockTransaction', () => {
 			.addRecipient(secretLockTransaction.recipient)
 			.build();
 
-		const transactionPayload = verifiableTransaction.signTransaction(keyPair);
+		const transactionPayload = verifiableTransaction.signTransaction(keyPair, testUtilsSpec.generationHash);
 
 		expect(transactionPayload.payload.substring(
 			240,

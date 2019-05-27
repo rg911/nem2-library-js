@@ -17,6 +17,7 @@
 import expect from 'expect.js';
 import AccountPropertiesEntityTypeTransaction from '../../src/transactions/AccountPropertiesEntityTypeTransaction';
 import deadline from '../../src/transactions/Deadline';
+import testUtilsSpec from '../testUtils.spec';
 
 describe('AccountPropertiesEntityTypeTransaction', () => {
 	const keyPair = {
@@ -38,7 +39,7 @@ describe('AccountPropertiesEntityTypeTransaction', () => {
 			.addModifications(model.modifications)
 			.build();
 
-		const transactionPayload = transaction.signTransaction(keyPair);
+		const transactionPayload = transaction.signTransaction(keyPair, testUtilsSpec.generationHash);
 		expect(transactionPayload.payload.substring(240, transactionPayload.payload.length))
 			.to.be.equal('0401004841');
 	});

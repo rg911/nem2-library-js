@@ -18,6 +18,7 @@ import expect from 'expect.js';
 import MosaicSupplyChangeTransaction from '../../src/transactions/MosaicSupplyChangeTransaction';
 import deadline from '../../src/transactions/Deadline';
 import uint64 from '../../src/coders/uint64';
+import testUtilsSpec from '../testUtils.spec';
 
 describe('MosaicSupplyChangeTransaction', () => {
 	const keyPair = {
@@ -40,7 +41,7 @@ describe('MosaicSupplyChangeTransaction', () => {
 			.addDelta(mosaicSupplyChangeTransaction.delta)
 			.build();
 
-		const transactionPayload = transaction.signTransaction(keyPair);
+		const transactionPayload = transaction.signTransaction(keyPair, testUtilsSpec.generationHash);
 		expect(transactionPayload.payload.substring(240, transactionPayload.payload.length))
 			.to.be.equal('18C5AFC0A842D83A010A00000000000000');
 	});

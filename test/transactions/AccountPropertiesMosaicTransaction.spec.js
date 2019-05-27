@@ -17,6 +17,7 @@
 import expect from 'expect.js';
 import AccountPropertiesMosaicTransaction from '../../src/transactions/AccountPropertiesMosaicTransaction';
 import deadline from '../../src/transactions/Deadline';
+import testUtilsSpec from '../testUtils.spec';
 
 describe('AccountPropertiesMosaicTransaction', () => {
 	const keyPair = {
@@ -38,7 +39,7 @@ describe('AccountPropertiesMosaicTransaction', () => {
 			.addModifications(model.modifications)
 			.build();
 
-		const transactionPayload = transaction.signTransaction(keyPair);
+		const transactionPayload = transaction.signTransaction(keyPair, testUtilsSpec.generationHash);
 		expect(transactionPayload.payload.substring(240, transactionPayload.payload.length))
 			.to.be.equal('02010018C5AFC0A842D83A');
 	});

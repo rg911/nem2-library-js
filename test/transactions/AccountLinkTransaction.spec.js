@@ -17,6 +17,7 @@
 import expect from 'expect.js';
 import AccountLinkTransaction from '../../src/transactions/AccountLinkTransaction';
 import deadline from '../../src/transactions/Deadline';
+import testUtilsSpec from '../testUtils.spec';
 
 describe('AccountLinkTransaction', () => {
 	const keyPair = {
@@ -36,7 +37,7 @@ describe('AccountLinkTransaction', () => {
 			.addLinkAction(accountLinkTransaction.linkAction)
 			.build();
 
-		const transactionPayload = verifiableTransaction.signTransaction(keyPair);
+		const transactionPayload = verifiableTransaction.signTransaction(keyPair, testUtilsSpec.generationHash);
 
 		expect(transactionPayload.payload.substring(
 			240,

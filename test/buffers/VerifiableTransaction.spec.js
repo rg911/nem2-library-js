@@ -18,6 +18,7 @@ import expect from 'expect.js';
 import TransferTransactionSchema from '../../src/schema/TransferTransactionSchema';
 import VerifiableTransactionBuilder from '../../src/transactions/VerificableTransactionBuilder';
 import * as TransferTransactionBufferPackage from '../../src/buffers/TransferTransactionBuffer';
+import testUtilsSpec from '../testUtils.spec';
 
 const { TransferTransactionBuffer, MessageBuffer, MosaicBuffer } = TransferTransactionBufferPackage.default.Buffers;
 const transfer = require('../../resources/request_before_sign.json');
@@ -86,11 +87,10 @@ describe('VerifiableTransaction', () => {
 			.addSchema(TransferTransactionSchema)
 			.build();
 
-		expect(verifiableTransaction.signTransaction(keyPair).payload)
-			.to.be.equal('A6000000DD964D671FE6E4E435146EAC50148016FC97A3AA837355475F2C53FFF291AF' +
-			'4BDB1F1EFEB8B05EF6DF532C6F1C1197F6E5B94B406EE15F6A033E88E444FE1008EB6839C7E6BD0031F' +
-			'DD5F8CB5137E9BC950D7EE7756C46B767E68F3F58C2439003900141000000000000000045A40ECB0A00' +
-			'000090E8FEBD671DD41BEE94EC3BA5831CB608A312C2F203BA84AC020001000029CF5FD941AD25D5809' +
-			'6980000000000');
+		const signedTx = verifiableTransaction.signTransaction(keyPair, testUtilsSpec.generationHash);
+		expect(signedTx.payload.substring(
+			240,
+			signedTx.payload.length
+		)).to.be.equal('90E8FEBD671DD41BEE94EC3BA5831CB608A312C2F203BA84AC020001000029CF5FD941AD25D58096980000000000');
 	});
 });
