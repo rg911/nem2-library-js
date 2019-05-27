@@ -19,6 +19,7 @@ import expect from 'expect.js';
 import SecretProofTransaction from '../../src/transactions/SecretProofTransaction';
 import deadline from '../../src/transactions/Deadline';
 import { HashAlgorithm } from '../../src/coders/hashAlgorithm';
+import testUtilsSpec from '../testUtils.spec';
 
 describe('SecretProofTransaction', () => {
 	const keyPair = {
@@ -44,7 +45,7 @@ describe('SecretProofTransaction', () => {
 			.addProof(secretProofTransaction.proof)
 			.build();
 
-		const transactionPayload = verifiableTransaction.signTransaction(keyPair);
+		const transactionPayload = verifiableTransaction.signTransaction(keyPair, testUtilsSpec.generationHash);
 		expect(transactionPayload.payload.substring(
 			240,
 			transactionPayload.payload.length

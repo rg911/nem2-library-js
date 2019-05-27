@@ -57,11 +57,13 @@ export default class VerifiableTransaction {
 
 	/**
 	 * @param {KeyPair } keyPair KeyPair instance
+	 * @param {string} generationHash Network generation hash hex
 	 * @returns {module:model/TransactionPayload} - Signed Transaction Payload
 	 */
-	signTransaction(keyPair) {
+	signTransaction(keyPair, generationHash) {
+		const generationHashBytes = Array.from(convert.hexToUint8(generationHash));
 		const byteBuffer = this.serialize();
-		const signingBytes = byteBuffer.slice(4 + 64 + 32);
+		const signingBytes = generationHashBytes.concat(byteBuffer.slice(4 + 64 + 32));
 		const keyPairEncoded = KeyPair.createKeyPairFromPrivateKeyString(keyPair.privateKey);
 		const signature = Array.from(KeyPair.sign(keyPair, new Uint8Array(signingBytes)));
 		const signedTransactionBuffer = byteBuffer

@@ -17,6 +17,7 @@
 import expect from 'expect.js';
 import MultisigModificationTransaction from '../../src/transactions/MultisigModificationTransaction';
 import deadline from '../../src/transactions/Deadline';
+import testUtilsSpec from '../testUtils.spec';
 
 describe('MultisigModificationTransaction', () => {
 	const keyPair = {
@@ -44,7 +45,7 @@ describe('MultisigModificationTransaction', () => {
 			.addModifications(multisigAggregateTransaction.modifications)
 			.build();
 
-		const transactionPayload = verifiableTransaction.signTransaction(keyPair);
+		const transactionPayload = verifiableTransaction.signTransaction(keyPair, testUtilsSpec.generationHash);
 		expect(transactionPayload.payload.substring(240, transactionPayload.payload.length))
 			.to.be.equal('0102020068B3FBB18729C1FDE225C57F8CE080FA828F0067E451A3FD81FA628842B' +
 			'0B76300CF893FFCC47C33E7F68AB1DB56365C156B0736824A0C1E273F9E00B8DF8F01EB');
