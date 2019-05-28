@@ -37,7 +37,7 @@ export default class VerifiableTransaction {
 
 	/**
 	 * @param {string} transactionPayload HexString Payload
-	 * @param {string} generationHash Network generation hash hex
+	 * @param {string} generationHash Network generation hash byte
 	 * @returns {*|string} Returns Transaction Payload hash
 	 */
 	static createTransactionHash(transactionPayload, generationHash) {
@@ -77,7 +77,7 @@ export default class VerifiableTransaction {
 		const payload = convert.uint8ToHex(signedTransactionBuffer);
 		return {
 			payload,
-			hash: VerifiableTransaction.createTransactionHash(payload, generationHash)
+			hash: VerifiableTransaction.createTransactionHash(payload, generationHashBytes)
 		};
 	}
 
