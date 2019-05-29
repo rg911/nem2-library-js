@@ -242,7 +242,7 @@ let _encode = function(senderPriv, recipientPub, msg, iv, salt) {
     // Processing
     let keyPair = createKeyPairFromPrivateKeyString(senderPriv);
     let pk = convert.hexToUint8(recipientPub);
-    let encKey = deriveSharedKey(keyPair, pk, salt);
+    let encKey = ua2words(deriveSharedKey(keyPair, pk, salt), 32);
     let encIv = {
         iv: ua2words(iv, 16)
     };
@@ -295,7 +295,7 @@ let decode = function(recipientPrivate, senderPublic, _payload) {
 
     let keyPair = createKeyPairFromPrivateKeyString(recipientPrivate);
     let pk = convert.hexToUint8(senderPublic);
-    let encKey = deriveSharedKey(keyPair, pk, salt);
+    let encKey = ua2words(deriveSharedKey(keyPair, pk, salt), 32);
     let encIv = {
         iv: ua2words(iv, 16)
     };
