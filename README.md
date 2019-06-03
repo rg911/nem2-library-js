@@ -16,7 +16,7 @@ This project is developed and maintained by NEM Foundation.
 
 The upgrade to this package's [version v0.10.0](https://github.com/nemtech/nem2-library-js/releases/tag/v0.10.0) is mandatory for **dragon compatibility**.
 
-[version v0.9.19](https://github.com/nemtech/nem2-library-js/releases/tag/v0.9.8) is the latest locked version for **cow compatibility**.
+[version v0.9.19](https://github.com/nemtech/nem2-library-js/releases/tag/v0.9.19) is the latest locked version for **cow compatibility**.
 
 Due to a network upgrade with [catapult-server@cow](https://github.com/nemtech/catapult-server/releases/tag/v0.3.0.1) version, **transactions from Alpaca&Bison are not compatible anymore**.
 
