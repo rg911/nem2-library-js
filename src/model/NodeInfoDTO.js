@@ -34,10 +34,6 @@ import RolesTypeEnum from './RolesTypeEnum';
 
 
 
-
-
-
-
 /**
 * The NodeInfoDTO model module.
 * @module model/NodeInfoDTO
@@ -61,8 +57,7 @@ export default class NodeInfoDTO {
         
 
         
-
-
+        
 
         this['publicKey'] = publicKey;this['port'] = port;this['networkIdentifier'] = networkIdentifier;this['version'] = version;this['roles'] = roles;this['host'] = host;this['friendlyName'] = friendlyName;
 
@@ -151,5 +146,4 @@ export default class NodeInfoDTO {
 
 
 }
-
 

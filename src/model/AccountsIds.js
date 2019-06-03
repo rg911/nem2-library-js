@@ -52,12 +52,6 @@ export default class AccountsIds {
         
 
         
-        Addresses.initialize(this);
-    }
-
-
-
-        
 
         
     }
@@ -99,17 +93,11 @@ export default class AccountsIds {
     addresses = undefined;
 
 
-/**
- * The array of addresses.
- * @member {Array.<String>} addresses
- */
-Addresses.prototype['addresses'] = undefined;
+
 
 
 
 
 
 }
-
-export default Addresses;
 

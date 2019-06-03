@@ -65,10 +65,6 @@ export default class NamespaceDTO {
 
         this['owner'] = owner;this['ownerAddress'] = ownerAddress;this['startHeight'] = startHeight;this['endHeight'] = endHeight;this['depth'] = depth;this['level0'] = level0;this['type'] = type;this['alias'] = alias;this['parentId'] = parentId;
 
-
-
-        this['owner'] = owner;this['ownerAddress'] = ownerAddress;this['startHeight'] = startHeight;this['endHeight'] = endHeight;this['depth'] = depth;this['level0'] = level0;this['type'] = type;this['alias'] = alias;this['parentId'] = parentId;
-
         
     }
 
@@ -180,5 +176,4 @@ export default class NamespaceDTO {
 
 
 }
-
 
