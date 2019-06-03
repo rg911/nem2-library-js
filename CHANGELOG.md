@@ -3,6 +3,7 @@
 ## v0.9.19
 
 - version lock for cow compatibility
+- Fixed encoding / decoding bug for message encryption / decryption (nemtech/nem2-library-js#43)
 
 ## v0.9.18
 
