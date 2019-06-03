@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## v0.9.19
+
+- version lock for cow compatibility
+
+## v0.9.18
+
+- Updated modules for fixing e2e tests on SDK (nemtech/nem2-sdk-typescript-javascript#138)
+
+## v0.9.17
+
+- Version fix
+
 ## v0.9.16
 
 - Version fix
