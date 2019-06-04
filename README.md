@@ -14,14 +14,21 @@ This project is developed and maintained by NEM Foundation.
 
 ## Important Notes
 
-The upgrade to this package's [version v0.10.0](https://github.com/nemtech/nem2-library-js/releases/tag/v0.10.0) is mandatory for **dragon compatibility**.
+### Dragon Network Compatibility (catapult-server@0.4.0.1)
+
+Due to a network upgrade with [catapult-server@dragon](https://github.com/nemtech/catapult-server/releases/tag/v0.4.0.1) version, **it is recommended to use this package's 0.10.0 version and upwards in order to use this package with Dragon versioned networks**.
+
+The upgrade to this package's [version v0.10.1](https://github.com/nemtech/nem2-library-js/releases/tag/v0.10.1) is mandatory for **dragon compatibility**.
+
+### Cow Network Compatibility (catapult-server@0.3.0.2)
 
 [version v0.9.19](https://github.com/nemtech/nem2-library-js/releases/tag/v0.9.19) is the latest locked version for **cow compatibility**.
 
-Due to a network upgrade with [catapult-server@cow](https://github.com/nemtech/catapult-server/releases/tag/v0.3.0.1) version, **transactions from Alpaca&Bison are not compatible anymore**.
+Due to a network upgrade with [catapult-server@cow](https://github.com/nemtech/catapult-server/releases/tag/v0.3.0.2) version, **transactions from Alpaca&Bison are not compatible anymore**.
 
-Other versions like [version v0.9.5-2](https://github.com/nemtech/nem2-library-js/releases/tag/v0.9.5-2) can be used for **alpaca** network version.
+### Alpaca / Bison Network Compatibility (catapult-server@0.1 & 0.2)
 
+In order to be able to use this package with _Alpaca_ or _Bison_ versioned network, you must use [version v0.9.5-2](https://github.com/nemtech/nem2-library-js/releases/tag/v0.9.5-2).
 
 ## Notes on generation of catapult-rest DTO and API client
 
@@ -38,7 +45,7 @@ $ docker run --rm -v ${PWD}:/local swaggerapi/swagger-codegen-cli generate -i /l
 
 Important versions listed below. Refer to the [Changelog](CHANGELOG.md) for a full history of the project.
 
-- [v0.10.0](CHANGELOG.md#v1000) - **Dragon Compatible** - 2019-06-03
+- [v0.10.1](CHANGELOG.md#v0101) - **Dragon Compatible** - 2019-06-04
 - [v0.9.19](CHANGELOG.md#v0919) - **Cow Compatible** - 2019-06-03
 - [v0.9.18](CHANGELOG.md#v0918) - **Cow Compatible** - 2019-05-16
 - [v0.9.17](CHANGELOG.md#v0917) - **Cow Compatible** - 2019-05-16
