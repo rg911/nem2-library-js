@@ -18,6 +18,7 @@ import expect from 'expect.js';
 import AggregateTransaction from '../../src/transactions/AggregateTransaction';
 import TransferTransaction from '../../src/transactions/TransferTransaction';
 import deadline from '../../src/transactions/Deadline';
+import testUtilsSpec from '../testUtils.spec';
 
 describe('AggregateTransaction', () => {
 	const keyPair = {
@@ -58,7 +59,7 @@ describe('AggregateTransaction', () => {
 			.addTransactions(aggregateTransaction.transactions)
 			.build();
 
-		const transactionPayload = verifiableTransaction.signTransaction(keyPair);
+		const transactionPayload = verifiableTransaction.signTransaction(keyPair, testUtilsSpec.generationHash);
 
 		expect(transactionPayload.payload.substring(240, transactionPayload.payload.length))
 			.to.be.equal('0501000057000000846B4439154579A5903B1459C9CF69CB8153F6D0110A7A0ED61DE29AE4810B' +

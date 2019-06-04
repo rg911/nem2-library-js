@@ -17,7 +17,7 @@
 import expect from 'expect.js';
 import MosaicAliasTransaction from '../../src/transactions/MosaicAliasTransaction';
 import deadline from '../../src/transactions/Deadline';
-import uint64 from '../../src/coders/uint64';
+import testUtilsSpec from '../testUtils.spec';
 
 describe('MosaicAliasTransaction', () => {
 	const keyPair = {
@@ -32,7 +32,7 @@ describe('MosaicAliasTransaction', () => {
 			namespaceId: [0xBA651B4F, 0xB1497F5F],
 			mosaicId: [0xC0AFC518, 0x3AD842A8]
 		};
- 
+
 		const transaction = new MosaicAliasTransaction.Builder()
 			.addDeadline(mosaicAliasTransaction.deadline)
 			.addActionType(mosaicAliasTransaction.actionType)
@@ -40,7 +40,7 @@ describe('MosaicAliasTransaction', () => {
 			.addMosaicId(mosaicAliasTransaction.mosaicId)
 			.build();
 
-		const transactionPayload = transaction.signTransaction(keyPair);
+		const transactionPayload = transaction.signTransaction(keyPair, testUtilsSpec.generationHash);
 		expect(transactionPayload.payload.substring(240, transactionPayload.payload.length))
 			.to.be.equal('004F1B65BA5F7F49B118C5AFC0A842D83A');
 	});

@@ -14,9 +14,11 @@ This project is developed and maintained by NEM Foundation.
 
 ## Important Notes
 
-Due to a network upgrade with [catapult-server@cow](https://github.com/nemtech/catapult-server/releases/tag/v0.3.0.1) version, **transactions from Alpaca&Bison are not compatible anymore**.
+The upgrade to this package's [version v0.10.0](https://github.com/nemtech/nem2-library-js/releases/tag/v0.10.0) is mandatory for **dragon compatibility**.
 
-The upgrade to this package's [version v0.9.8](https://github.com/nemtech/nem2-library-js/releases/tag/v0.9.8) is mandatory for **cow compatibility**.
+[version v0.9.19](https://github.com/nemtech/nem2-library-js/releases/tag/v0.9.19) is the latest locked version for **cow compatibility**.
+
+Due to a network upgrade with [catapult-server@cow](https://github.com/nemtech/catapult-server/releases/tag/v0.3.0.1) version, **transactions from Alpaca&Bison are not compatible anymore**.
 
 Other versions like [version v0.9.5-2](https://github.com/nemtech/nem2-library-js/releases/tag/v0.9.5-2) can be used for **alpaca** network version.
 
@@ -36,6 +38,7 @@ $ docker run --rm -v ${PWD}:/local swaggerapi/swagger-codegen-cli generate -i /l
 
 Important versions listed below. Refer to the [Changelog](CHANGELOG.md) for a full history of the project.
 
+- [v0.10.0](CHANGELOG.md#v1000) - **Dragon Compatible** - 2019-06-03
 - [v0.9.19](CHANGELOG.md#v0919) - **Cow Compatible** - 2019-06-03
 - [v0.9.18](CHANGELOG.md#v0918) - **Cow Compatible** - 2019-05-16
 - [v0.9.17](CHANGELOG.md#v0917) - **Cow Compatible** - 2019-05-16

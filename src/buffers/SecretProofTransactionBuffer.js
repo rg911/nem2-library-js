@@ -221,10 +221,35 @@ Catapult.Buffers.SecretProofTransactionBuffer.prototype.secretArray = function()
 };
 
 /**
+ * @param {number} index
+ * @returns {number}
+ */
+Catapult.Buffers.SecretProofTransactionBuffer.prototype.recipient = function(index) {
+	var offset = this.bb.__offset(this.bb_pos, 22);
+	return offset ? this.bb.readUint8(this.bb.__vector(this.bb_pos + offset) + index) : 0;
+};
+
+/**
+ * @returns {number}
+ */
+Catapult.Buffers.SecretProofTransactionBuffer.prototype.recipientLength = function() {
+	var offset = this.bb.__offset(this.bb_pos, 22);
+	return offset ? this.bb.__vector_len(this.bb_pos + offset) : 0;
+};
+
+/**
+ * @returns {Uint8Array}
+ */
+Catapult.Buffers.SecretProofTransactionBuffer.prototype.recipientArray = function() {
+	var offset = this.bb.__offset(this.bb_pos, 22);
+	return offset ? new Uint8Array(this.bb.bytes().buffer, this.bb.bytes().byteOffset + this.bb.__vector(this.bb_pos + offset), this.bb.__vector_len(this.bb_pos + offset)) : null;
+};
+
+/**
  * @returns {number}
  */
 Catapult.Buffers.SecretProofTransactionBuffer.prototype.proofSize = function() {
-	var offset = this.bb.__offset(this.bb_pos, 22);
+	var offset = this.bb.__offset(this.bb_pos, 24);
 	return offset ? this.bb.readUint16(this.bb_pos + offset) : 0;
 };
 
@@ -233,7 +258,7 @@ Catapult.Buffers.SecretProofTransactionBuffer.prototype.proofSize = function() {
  * @returns {number}
  */
 Catapult.Buffers.SecretProofTransactionBuffer.prototype.proof = function(index) {
-	var offset = this.bb.__offset(this.bb_pos, 24);
+	var offset = this.bb.__offset(this.bb_pos, 26);
 	return offset ? this.bb.readUint8(this.bb.__vector(this.bb_pos + offset) + index) : 0;
 };
 
@@ -241,7 +266,7 @@ Catapult.Buffers.SecretProofTransactionBuffer.prototype.proof = function(index) 
  * @returns {number}
  */
 Catapult.Buffers.SecretProofTransactionBuffer.prototype.proofLength = function() {
-	var offset = this.bb.__offset(this.bb_pos, 24);
+	var offset = this.bb.__offset(this.bb_pos, 26);
 	return offset ? this.bb.__vector_len(this.bb_pos + offset) : 0;
 };
 
@@ -249,7 +274,7 @@ Catapult.Buffers.SecretProofTransactionBuffer.prototype.proofLength = function()
  * @returns {Uint8Array}
  */
 Catapult.Buffers.SecretProofTransactionBuffer.prototype.proofArray = function() {
-	var offset = this.bb.__offset(this.bb_pos, 24);
+	var offset = this.bb.__offset(this.bb_pos, 26);
 	return offset ? new Uint8Array(this.bb.bytes().buffer, this.bb.bytes().byteOffset + this.bb.__vector(this.bb_pos + offset), this.bb.__vector_len(this.bb_pos + offset)) : null;
 };
 
@@ -257,7 +282,7 @@ Catapult.Buffers.SecretProofTransactionBuffer.prototype.proofArray = function() 
  * @param {flatbuffers.Builder} builder
  */
 Catapult.Buffers.SecretProofTransactionBuffer.startSecretProofTransactionBuffer = function(builder) {
-	builder.startObject(11);
+	builder.startObject(12);
 };
 
 /**
@@ -439,10 +464,39 @@ Catapult.Buffers.SecretProofTransactionBuffer.startSecretVector = function(build
 
 /**
  * @param {flatbuffers.Builder} builder
+ * @param {flatbuffers.Offset} recipientOffset
+ */
+Catapult.Buffers.SecretProofTransactionBuffer.addRecipient = function(builder, recipientOffset) {
+	builder.addFieldOffset(9, recipientOffset, 0);
+};
+
+/**
+ * @param {flatbuffers.Builder} builder
+ * @param {Array.<number>} data
+ * @returns {flatbuffers.Offset}
+ */
+Catapult.Buffers.SecretProofTransactionBuffer.createRecipientVector = function(builder, data) {
+	builder.startVector(1, data.length, 1);
+	for (var i = data.length - 1; i >= 0; i--) {
+		builder.addInt8(data[i]);
+	}
+	return builder.endVector();
+};
+
+/**
+ * @param {flatbuffers.Builder} builder
+ * @param {number} numElems
+ */
+Catapult.Buffers.SecretProofTransactionBuffer.startRecipientVector = function(builder, numElems) {
+	builder.startVector(1, numElems, 1);
+};
+
+/**
+ * @param {flatbuffers.Builder} builder
  * @param {number} proofSize
  */
 Catapult.Buffers.SecretProofTransactionBuffer.addProofSize = function(builder, proofSize) {
-	builder.addFieldInt16(9, proofSize, 0);
+	builder.addFieldInt16(10, proofSize, 0);
 };
 
 /**
@@ -450,7 +504,7 @@ Catapult.Buffers.SecretProofTransactionBuffer.addProofSize = function(builder, p
  * @param {flatbuffers.Offset} proofOffset
  */
 Catapult.Buffers.SecretProofTransactionBuffer.addProof = function(builder, proofOffset) {
-	builder.addFieldOffset(10, proofOffset, 0);
+	builder.addFieldOffset(11, proofOffset, 0);
 };
 
 /**

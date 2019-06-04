@@ -18,6 +18,7 @@ import expect from 'expect.js';
 import HashLockTransaction from '../../src/transactions/HashLockTransaction';
 import deadline from '../../src/transactions/Deadline';
 import uint64 from '../../src/coders/uint64';
+import testUtilsSpec from '../testUtils.spec';
 
 describe('HashLockTransaction', () => {
 	const keyPair = {
@@ -41,7 +42,7 @@ describe('HashLockTransaction', () => {
 			.addHash(hashLockTransaction.hash)
 			.build();
 
-		const transactionPayload = verifiableTransaction.signTransaction(keyPair);
+		const transactionPayload = verifiableTransaction.signTransaction(keyPair, testUtilsSpec.generationHash);
 
 		expect(transactionPayload.payload.substring(
 			240,

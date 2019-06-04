@@ -14,10 +14,12 @@
  * limitations under the License.
  */
 
-import { sha3_512 } from 'js-sha3';
+import { sha3_256 } from 'js-sha3';
 import expect from 'expect.js';
 import SecretProofTransaction from '../../src/transactions/SecretProofTransaction';
 import deadline from '../../src/transactions/Deadline';
+import { HashAlgorithm } from '../../src/coders/hashAlgorithm';
+import testUtilsSpec from '../testUtils.spec';
 
 describe('SecretProofTransaction', () => {
 	const keyPair = {
@@ -26,27 +28,27 @@ describe('SecretProofTransaction', () => {
 	};
 
 	it('should create secret lock transaction', () => {
-		const hash = sha3_512.create();
+		const hash = sha3_256.create();
 		hash.update('secret');
 		const secretProofTransaction = {
 			deadline: deadline(),
-			hashAlgorithm: 0,
+			hashAlgorithm: HashAlgorithm.SHA3_256,
 			secret: hash.hex(),
+			recipient: 'SDUP5PLHDXKBX3UU5Q52LAY4WYEKGEWC6IB3VBFM',
 			proof: '9a493664'
 		};
 		const verifiableTransaction = new SecretProofTransaction.Builder()
 			.addDeadline(secretProofTransaction.deadline)
 			.addHashAlgorithm(secretProofTransaction.hashAlgorithm)
 			.addSecret(secretProofTransaction.secret)
+			.addRecipient(secretProofTransaction.recipient)
 			.addProof(secretProofTransaction.proof)
 			.build();
 
-		const transactionPayload = verifiableTransaction.signTransaction(keyPair);
-
+		const transactionPayload = verifiableTransaction.signTransaction(keyPair, testUtilsSpec.generationHash);
 		expect(transactionPayload.payload.substring(
 			240,
 			transactionPayload.payload.length
-		)).to.be.equal('00B778A39A3663719DFC5E48C9D78431B1E45C2AF9DF538782BF199C189DABEAC7' +
-			'680ADA57DCEC8EEE91C4E3BF3BFA9AF6FFDE90CD1D249D1C6121D7B759A001B104009A493664');
+	)).to.be.equal('00F5A5207A8729B1F709CB710311751EB2FC8ACAD5A1FB8AC991B736E69B6529A390E8FEBD671DD41BEE94EC3BA5831CB608A312C2F203BA84AC04009A493664');
 	});
 });

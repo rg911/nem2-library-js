@@ -20,6 +20,7 @@ import MosaicCreationTransaction from '../../src/transactions/MosaicCreationTran
 import deadline from '../../src/transactions/Deadline';
 import { mosaicId } from '../../src/transactions/NamespaceMosaicId';
 import uint64 from '../../src/coders/uint64';
+import testUtilsSpec from '../testUtils.spec';
 
 describe('MosaicCreationTransaction', () => {
 	const keyPair = {
@@ -46,7 +47,7 @@ describe('MosaicCreationTransaction', () => {
 			.addMosaicId(mosaicCreationTransaction.mosaicId)
 			.build();
 
-		const transactionPayload = verifiableTransaction.signTransaction(keyPair);
+		const transactionPayload = verifiableTransaction.signTransaction(keyPair, testUtilsSpec.generationHash);
 
 		expect(transactionPayload.payload.substring(240, transactionPayload.payload.length))
 			.to.be.equal('E6DE84B88675F65ED72E4B43010104021027000000000000');
@@ -71,7 +72,7 @@ describe('MosaicCreationTransaction', () => {
 			.addMosaicId(mosaicCreationTransaction.mosaicId)
 			.build();
 
-		const transactionPayload = verifiableTransaction.signTransaction(keyPair);
+		const transactionPayload = verifiableTransaction.signTransaction(keyPair, testUtilsSpec.generationHash);
 
 		/**
 		 * If no duration provided, the new tx size changed to 135.

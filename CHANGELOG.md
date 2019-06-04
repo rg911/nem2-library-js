@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## v0.10.0
+
+- Added 'Receipt' modules
+- Added Nemesis Block generation hash in transaction signing
+- Removed Mosaic levy
+- Applied new DTOs
+
 ## v0.9.19
 
 - version lock for cow compatibility
@@ -74,4 +81,3 @@
 ## v0.9.5-2
 
 - Alpace Compatibility
-

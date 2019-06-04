@@ -37,14 +37,16 @@ export default class VerifiableTransaction {
 
 	/**
 	 * @param {string} transactionPayload HexString Payload
+	 * @param {string} generationHash Network generation hash byte
 	 * @returns {*|string} Returns Transaction Payload hash
 	 */
-	static createTransactionHash(transactionPayload) {
+	static createTransactionHash(transactionPayload, generationHash) {
 		const byteBuffer = Array.from(convert.hexToUint8(transactionPayload));
 		const signingBytes = byteBuffer
 			.slice(4, 36)
 			.concat(byteBuffer
 				.slice(4 + 64, 4 + 64 + 32))
+			.concat(generationHash)
 			.concat(byteBuffer
 				.splice(4 + 64 + 32, byteBuffer.length));
 
@@ -57,11 +59,13 @@ export default class VerifiableTransaction {
 
 	/**
 	 * @param {KeyPair } keyPair KeyPair instance
+	 * @param {string} generationHash Network generation hash hex
 	 * @returns {module:model/TransactionPayload} - Signed Transaction Payload
 	 */
-	signTransaction(keyPair) {
+	signTransaction(keyPair, generationHash) {
+		const generationHashBytes = Array.from(convert.hexToUint8(generationHash));
 		const byteBuffer = this.serialize();
-		const signingBytes = byteBuffer.slice(4 + 64 + 32);
+		const signingBytes = generationHashBytes.concat(byteBuffer.slice(4 + 64 + 32));
 		const keyPairEncoded = KeyPair.createKeyPairFromPrivateKeyString(keyPair.privateKey);
 		const signature = Array.from(KeyPair.sign(keyPair, new Uint8Array(signingBytes)));
 		const signedTransactionBuffer = byteBuffer
@@ -73,7 +77,7 @@ export default class VerifiableTransaction {
 		const payload = convert.uint8ToHex(signedTransactionBuffer);
 		return {
 			payload,
-			hash: VerifiableTransaction.createTransactionHash(payload)
+			hash: VerifiableTransaction.createTransactionHash(payload, generationHashBytes)
 		};
 	}
 
