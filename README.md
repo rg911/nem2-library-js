@@ -16,9 +16,9 @@ This project is developed and maintained by NEM Foundation.
 
 ### Dragon Network Compatibility (catapult-server@0.4.0.1)
 
-Due to a network upgrade with [catapult-server@dragon](https://github.com/nemtech/catapult-server/releases/tag/v0.4.0.1) version, **it is recommended to use this package's 0.10.0 version and upwards in order to use this package with Dragon versioned networks**.
+Due to a network upgrade with [catapult-server@dragon](https://github.com/nemtech/catapult-server/releases/tag/v0.4.0.1) version, **it is recommended to use this package's 0.10.2 version and upwards in order to use this package with Dragon versioned networks**.
 
-The upgrade to this package's [version v0.10.1](https://github.com/nemtech/nem2-library-js/releases/tag/v0.10.1) is mandatory for **dragon compatibility**.
+The upgrade to this package's [version v0.10.2](https://github.com/nemtech/nem2-library-js/releases/tag/v0.10.12 is mandatory for **dragon compatibility**.
 
 ### Cow Network Compatibility (catapult-server@0.3.0.2)
 
@@ -45,7 +45,7 @@ $ docker run --rm -v ${PWD}:/local swaggerapi/swagger-codegen-cli generate -i /l
 
 Important versions listed below. Refer to the [Changelog](CHANGELOG.md) for a full history of the project.
 
-- [v0.10.1](CHANGELOG.md#v0101) - **Dragon Compatible** - 2019-06-04
+- [v0.10.2](CHANGELOG.md#v0102) - **Dragon Compatible** - 2019-06-04
 - [v0.9.19](CHANGELOG.md#v0919) - **Cow Compatible** - 2019-06-03
 - [v0.9.18](CHANGELOG.md#v0918) - **Cow Compatible** - 2019-05-16
 - [v0.9.17](CHANGELOG.md#v0917) - **Cow Compatible** - 2019-05-16
@@ -62,5 +62,5 @@ Important versions listed below. Refer to the [Changelog](CHANGELOG.md) for a fu
 
 ## License
 
-Copyright (c) 2018 NEM
+Copyright (c) 2018-2019 NEM
 Licensed under the [Apache License 2.0](LICENSE)

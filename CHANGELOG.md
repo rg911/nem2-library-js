@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## v0.10.1
+## v0.10.2
 
 - Added 'Receipt' modules
 - Added Nemesis Block generation hash in transaction signing
